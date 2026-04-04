@@ -187,32 +187,35 @@
         }
 
         /* Secciones Generales */
-        .section { padding: 120px 8%; position: relative; }
-        .section-header { margin-bottom: 80px; text-align: center; }
+        .section { padding: 100px 6%; position: relative; }
+        .section-header { margin-bottom: 60px; text-align: center; }
         .section-header h2 { 
             font-family: 'Montserrat', sans-serif; 
-            font-size: clamp(2rem, 5vw, 3rem); 
+            font-size: clamp(1.8rem, 4vw, 2.8rem); 
             color: var(--white); 
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
-        .section-header .bar { width: 80px; height: 6px; background: var(--accent); margin: 0 auto; border-radius: 3px; }
+        .section-header .bar { width: 60px; height: 5px; background: var(--accent); margin: 0 auto; border-radius: 3px; }
 
         /* Grid de Servicios con Glassmorphism */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
         .service-card {
             background: var(--glass);
-            padding: 60px 40px;
+            padding: 40px 25px;
             border-radius: 20px;
             border: 1px solid var(--glass-border);
             text-align: center;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
         .service-card:hover { 
             background: rgba(255, 255, 255, 0.05); 
@@ -221,9 +224,9 @@
             box-shadow: var(--shadow);
         }
         .service-card i { 
-            font-size: 3.5rem; 
+            font-size: 3rem; 
             color: var(--accent); 
-            margin-bottom: 30px; 
+            margin-bottom: 25px; 
             display: block; 
             filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.3));
         }
@@ -380,7 +383,12 @@
             <div class="service-card">
                 <i class="fas fa-faucet-drip"></i>
                 <h3>Ósmosis Inversa</h3>
-                <p>Procura de membranas, cartuchos y carbón activado. Mantenimiento de plantas de tratamiento de aguas industriales y desinfección química.</p>
+                <p>Procura de membranas, cartuchos y carbón activado. Mantenimiento de plantas de tratamiento de aguas industriales.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-flask-vial"></i>
+                <h3>Químicos Especializados</h3>
+                <p>Tratamiento de petróleo (demulsificantes, reductores de viscosidad, secuestrantes), procesos de limpieza química industrial en torres y calderas, y manejo de sólidos (coque/buques). Línea de productos con casa química asociada.</p>
             </div>
         </div>
     </section>
@@ -528,7 +536,7 @@
         <div style="background: var(--glass); display: inline-block; padding: 50px 80px; border-radius: 20px; border: 1px solid var(--glass-border);">
             <p style="font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; font-weight: 700;">RIF: J-40981894-2</p>
             <p style="margin-bottom: 10px;"><i class="fas fa-location-dot" style="color: var(--accent); margin-right: 15px;"></i> Barcelona, Edo. Anzoáteguis, Venezuela</p>
-            <p style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color: var(--accent); margin-right: 15px;"></i> airomservzla@gmail.com</p>
+            <p style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color: var(--accent); margin-right: 15px;"></i> ventas@airomser.com | ceo@airomser.com | it_solutions@airomser.com</p>
             <p style="margin-bottom: 30px;"><i class="fas fa-phone" style="color: var(--accent); margin-right: 15px;"></i> +58 424-8287969</p>
             <a href="https://wa.me/584248287969" class="btn-modern">Enviar Mensaje</a>
         </div>
