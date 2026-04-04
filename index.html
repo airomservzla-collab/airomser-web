@@ -69,13 +69,27 @@
             border: 1px solid var(--glass-border);
             transition: var(--transition);
         }
-        .logo:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--accent);
-        }
         .logo img { 
             height: 75px; 
             filter: brightness(1.1) drop-shadow(0 0 12px rgba(255,255,255,0.25));
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
             transition: var(--transition);
         }
 
@@ -90,6 +104,32 @@
             transition: var(--transition);
         }
         nav ul li a:hover { color: var(--accent); }
+
+        /* Responsive Mobile Styles */
+        @media (max-width: 992px) {
+            .menu-toggle { display: flex; }
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transition: var(--transition);
+                z-index: 1000;
+                border-left: 1px solid var(--glass-border);
+            }
+            nav ul.active { right: 0; }
+            nav ul li a { font-size: 1.2rem; }
+
+            .hero h1 { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+            .section { padding: 80px 6%; }
+        }
 
         /* Hero Section Dinámico */
         .hero {
@@ -293,7 +333,12 @@
         <div class="logo">
             <img src="Untitled.png" alt="AIROM SER Logo">
         </div>
-        <ul>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#ingenieria">Ingeniería</a></li>
             <li><a href="#tecnologia">Tecnología</a></li>
@@ -515,7 +560,35 @@
 
         // Animación de entrada Hero
         window.addEventListener('load', () => {
-            document.getElementById('heroContent').classList.add('active');
+            const heroContent = document.getElementById('heroContent');
+            if(heroContent) heroContent.classList.add('active');
+        });
+
+        // Toggle Menú Móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        if(menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                // Animación del icono
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(6px, 6px)' : 'rotate(0)';
+                spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+                spans[2].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(6px, -6px)' : 'rotate(0)';
+            });
+        }
+
+        // Cerrar menú al hacer click en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'rotate(0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0)';
+            });
         });
 
         // Reveal al hacer scroll simple
