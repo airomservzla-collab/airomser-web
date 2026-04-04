@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIROM SER C.A. | Ingeniería & Tecnología Industrial</title>
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Portal web oficial de AIROM SER C.A. Ingeniería, mantenimiento criogénico, tratamiento de aguas y soluciones tecnológicas industriales.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Paleta de Colores de Alta Fidelidad */
+            --primary: #0f172a;        /* Navy Profundo */
+            --primary-light: #1e293b;  /* Slate */
+            --accent: #ffb703;         /* Amarillo Industrial */
+            --accent-soft: rgba(255, 183, 3, 0.15);
+            --white: #f8fafc;
+            --text-dim: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--primary); 
+            color: var(--white); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--primary); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 5px; border: 2px solid var(--primary); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        /* Navegación Glassmorphism Premium */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        nav.scrolled {
+            padding: 10px 6%;
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: var(--shadow);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        .logo:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+        }
+        .logo img { 
+            height: 75px; 
+            filter: brightness(1.1) drop-shadow(0 0 12px rgba(255,255,255,0.25));
+            transition: var(--transition);
+        }
+
+        nav ul { display: flex; list-style: none; gap: 35px; }
+        nav ul li a { 
+            color: var(--text-dim); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            transition: var(--transition);
+        }
+        nav ul li a:hover { color: var(--accent); }
+
+        /* Hero Section Dinámico */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url('20240618_102013.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 0 8%;
+            overflow: hidden;
+        }
+
+        .hero-content { z-index: 10; transform: translateY(10px); opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; }
+        .hero-content.active { opacity: 1; transform: translateY(0); }
+        
+        .hero h1 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: clamp(2.8rem, 8vw, 4.8rem); 
+            font-weight: 900; 
+            color: var(--white); 
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+        .hero h1 span { color: var(--accent); display: block; }
+        .hero p { color: var(--text-dim); font-size: clamp(1.1rem, 2vw, 1.4rem); max-width: 750px; margin: 0 auto 45px; font-weight: 300; }
+
+        /* Botones de Estilo Corporativo */
+        .btn-modern {
+            display: inline-block;
+            padding: 18px 45px;
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(255, 183, 3, 0.2);
+            border: 2px solid var(--accent);
+        }
+        .btn-modern:hover { 
+            background: transparent; 
+            color: var(--accent); 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(255, 183, 3, 0.3);
+        }
+
+        /* Secciones Generales */
+        .section { padding: 120px 8%; position: relative; }
+        .section-header { margin-bottom: 80px; text-align: center; }
+        .section-header h2 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: clamp(2rem, 5vw, 3rem); 
+            color: var(--white); 
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .section-header .bar { width: 80px; height: 6px; background: var(--accent); margin: 0 auto; border-radius: 3px; }
+
+        /* Grid de Servicios con Glassmorphism */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--glass);
+            padding: 60px 40px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover { 
+            background: rgba(255, 255, 255, 0.05); 
+            border-color: var(--accent); 
+            transform: translateY(-15px);
+            box-shadow: var(--shadow);
+        }
+        .service-card i { 
+            font-size: 3.5rem; 
+            color: var(--accent); 
+            margin-bottom: 30px; 
+            display: block; 
+            filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.3));
+        }
+        .service-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; margin-bottom: 20px; color: var(--white); }
+        .service-card p { color: var(--text-dim); font-size: 1rem; line-height: 1.8; }
+
+        /* Trayectoria (Timeline) */
+        .timeline-wrapper { position: relative; max-width: 1000px; margin: 0 auto; }
+        .timeline-wrapper::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px; height: 100%;
+            background: linear-gradient(transparent, var(--accent), transparent);
+            opacity: 0.2;
+        }
+        .timeline-entry { 
+            position: relative; 
+            margin-bottom: 60px; 
+            width: 50%; 
+            padding: 0 40px; 
+            cursor: pointer;
+        }
+        .timeline-entry:nth-child(even) { margin-left: 50%; text-align: left; }
+        .timeline-entry:nth-child(odd) { text-align: right; }
+        .timeline-dot {
+            position: absolute;
+            top: 15px;
+            width: 16px; height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent);
+            z-index: 5;
+        }
+        .timeline-entry:nth-child(even) .timeline-dot { left: -8px; }
+        .timeline-entry:nth-child(odd) .timeline-dot { right: -8px; }
+        
+        .timeline-year { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--accent); margin-bottom: 10px; }
+        .timeline-content-card {
+            background: var(--glass);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        .timeline-entry:hover .timeline-content-card { background: rgba(255, 255, 255, 0.05); border-color: var(--accent); }
+
+        /* Galería */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .gallery-photo { 
+            position: relative; 
+            height: 350px; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            border: 1px solid var(--glass-border);
+        }
+        .gallery-photo img { width: 100%; height: 100%; object-fit: cover; transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); filter: brightness(0.6); }
+        .gallery-photo:hover img { transform: scale(1.1); filter: brightness(1.1); }
+        .gallery-photo-info {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .gallery-photo:hover .gallery-photo-info { transform: translateY(0); opacity: 1; }
+
+        /* Footer */
+        footer { 
+            background: #020617; 
+            padding: 100px 8% 40px; 
+            text-align: center; 
+            border-top: 1px solid var(--glass-border);
+        }
+        .footer-social { margin-bottom: 50px; display: flex; justify-content: center; gap: 30px; }
+        .footer-social a { color: var(--text-dim); font-size: 2rem; transition: var(--transition); }
+        .footer-social a:hover { color: var(--accent); transform: translateY(-5px); }
+
+        .wp-button {
+            position: fixed; bottom: 40px; right: 40px;
+            background: #22c55e; color: white; width: 65px; height: 65px;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 34px; z-index: 1000; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+            transition: var(--transition);
+        }
+        .wp-button:hover { transform: scale(1.1) rotate(10deg); }
+
+        @media (max-width: 992px) {
+            .timeline-wrapper::before { left: 40px; }
+            .timeline-entry { width: 100%; text-align: left !important; padding-left: 80px; }
+            .timeline-entry .timeline-dot { left: 32px !important; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <img src="Untitled.png" alt="AIROM SER Logo">
+        </div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#ingenieria">Ingeniería</a></li>
+            <li><a href="#tecnologia">Tecnología</a></li>
+            <li><a href="#trayectoria">Trayectoria</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content" id="heroContent">
+            <p style="text-transform: uppercase; letter-spacing: 4px; font-weight: 600; color: var(--accent); margin-bottom: 15px;">Establecido en 2017</p>
+            <h1>Ingeniería & <span>Innovación Industrial</span></h1>
+            <p>Líderes en mantenimiento criogénico, tratamiento de aguas especializadas y desarrollo de soluciones tecnológicas de última generación.</p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="#trayectoria" class="btn-modern">Nuestra Historia</a>
+                <a href="#contacto" class="btn-modern" style="background: transparent; color: var(--white); border-color: var(--glass-border);">Contacto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Ingeniería -->
+    <section id="ingenieria" class="section">
+        <div class="section-header">
+            <h2>Ingeniería Especializada</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-snowflake"></i>
+                <h3>Sistemas Criogénicos</h3>
+                <p>Mantenimiento mayor y acondicionamiento de tanques de Nitrógeno Líquido de gran capacidad (hasta 76,000 gal) y sistemas de gases industriales.</p>
+            </div>
+            <div class="service-card" style="border-color: var(--accent);">
+                <i class="fas fa-microchip"></i>
+                <h3>Sistemas de Vacío</h3>
+                <p>Detección técnica de fugas y mantenimiento especializado a bombas de vacío para procesos industriales críticos.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-faucet-drip"></i>
+                <h3>Ósmosis Inversa</h3>
+                <p>Procura de membranas, cartuchos y carbón activado. Mantenimiento de plantas de tratamiento de aguas industriales y desinfección química.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Tecnología -->
+    <section id="tecnologia" class="section" style="background: var(--primary-light);">
+        <div class="section-header">
+            <h2>Soluciones Tecnológicas</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" style="text-align: left; background: var(--primary);">
+                <i class="fas fa-mobile-screen-button"></i>
+                <h3>Desarrollo de Apps</h3>
+                <p>Ensamblaje de aplicaciones móviles (APK) para el control riguroso de procesos industriales y gestión de inventarios en tiempo real.</p>
+            </div>
+            <div class="service-card" style="text-align: left; background: var(--primary);">
+                <i class="fas fa-code-branch"></i>
+                <h3>Sistemas a Medida</h3>
+                <p>Creación de software personalizado para la integración de bases de datos y gestión técnica operativa de activos industriales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Trayectoria (Síntesis Curricular) -->
+    <section id="trayectoria" class="section">
+        <div class="section-header">
+            <h2>Trayectoria Comprobada</h2>
+            <p style="color: var(--text-dim); margin-top: 10px;">Más de 9 años de experiencia ejecutando proyectos de alta complejidad.</p>
+            <div class="bar"></div>
+        </div>
+        
+        <div class="timeline-wrapper">
+            <!-- 2017 - 2019 -->
+            <div class="timeline-entry">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2017 - 2019</div>
+                <div class="timeline-content-card">
+                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;">
+                        <li style="margin-bottom: 8px;"><b>PETROLEUM CONTRACTOR C.A.</b><br>• Suministro de aceites (valvulina y Diésel).</li>
+                        <li style="margin-bottom: 8px;"><b>R&M CHEMICAL</b><br>• Suministros de monoethanolamina al 99%.<br>• Mantenimiento en plantas de aguas industriales.</li>
+                        <li style="margin-bottom: 8px;"><b>PEQUIVEN S.A.</b><br>• Suministros y sustitución de válvula de gas cloro.<br>• Suministro de hipoclorito al 12%.</li>
+                        <li style="margin-bottom: 8px;"><b>PDVSA Termo Eléctrica</b><br>• Servicio de arranque planta de tratamiento de aguas industriales.</li>
+                        <li style="margin-bottom: 8px;"><b>ALIMENTOS MERU C.A.</b><br>• Suministro de químicos.</li>
+                        <li style="margin-bottom: 8px;"><b>KORVENE C.A.</b><br>• Suministro de fluidos y servicio para compresores de aires.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2020 - 2021 -->
+            <div class="timeline-entry">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2020 - 2021</div>
+                <div class="timeline-content-card">
+                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;">
+                        <li style="margin-bottom: 8px;"><b>PDVSA Termo Eléctrica</b><br>• Reparación en módulo desinfección química (TK-22).</li>
+                        <li style="margin-bottom: 8px;"><b>SUINTER C.A. / BIFURCA C.A.</b><br>• Suministro de químicos especializados.<br>• Acondicionamiento de unidades para recolección de catalizadores.</li>
+                        <li style="margin-bottom: 8px;"><b>PDVSA Petropiar</b><br>• Suministro de membranas y cartuchos para unidad 42 de ósmosis.<br>• Suministro de Carbón Activado PROCURA.</li>
+                        <li style="margin-bottom: 8px;"><b>INVEGAS S.C.A. (JOSE)</b><br>• Servicio en estaciones de regulación de Nitrógeno y tanques de almacenamiento (Petropiar, Petrocedeño, Metor, Fertinitro, entre otros).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2022 - 2023 -->
+            <div class="timeline-entry">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2022 - 2023</div>
+                <div class="timeline-content-card">
+                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;">
+                        <li style="margin-bottom: 8px;"><b>FEMSA VALENCIA / BARCELONA</b><br>• Mantenimiento de sistemas de Nitrógeno y CO2.<br>• Mejora en vacío para tanques criogénicos.<br>• Suministro e instalaciones de válvulas de seguridad.<br>• Sistemas de distribución de Nitrógeno gaseoso.</li>
+                        <li style="margin-bottom: 8px;"><b>METOR S.A.</b><br>• Servicio de izamiento con grúa telescópica en tanques criogénicos.<br>• Facilidades y mantenimiento para instalación provisional de almacenamiento.<br>• Instalación y desinstalación de Tanques Criogénicos en complejo petroquímico.</li>
+                        <li style="margin-bottom: 8px;"><b>PDVSA Petrocedeño</b><br>• Mejora y Acondicionamiento tanque 76000 gal de nitrógeno.</li>
+                        <li style="margin-bottom: 8px;"><b>SUPERMETANOL / INTEGRA / CLÍNICA LA GUAIRA</b><br>• Mantenimiento estaciones de regulación y calibración de válvulas.<br>• Sistema de suministros de oxígeno.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2024 - 2026 -->
+            <div class="timeline-entry">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2024 - 2026</div>
+                <div class="timeline-content-card">
+                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;">
+                        <li style="margin-bottom: 8px;"><b>PDVSA REFINERÍA PLC</b><br>• Asistencia técnica Unidad 94 Planta separadora de Gases.</li>
+                        <li style="margin-bottom: 8px;"><b>PETROALIANZA (EL TIGRE/OCCIDENTE) / INTEGRA</b><br>• Inspección, medición y mantenimiento a sistemas de almacenamiento de Nitrógeno Líquido.<br>• Gabarra de coiled tubing y válvulas de seguridad ISOTANQUE.</li>
+                        <li style="margin-bottom: 8px;"><b>PETROPIAR (COVSA)</b><br>• Mantenimiento Mayor de los Desaladores en complejo mejorador.</li>
+                        <li style="margin-bottom: 8px;"><b>YANLU C.A. / LONGKEDA C.A.</b><br>• Suministro de Aceites Especializados e inyección pozos petroleros.</li>
+                        <li style="margin-bottom: 8px;"><b>PDVSA Petróleo S.A. (Chaure)</b><br>• Tratamiento agua cruda y Unidad de destilación en laboratorio Nucleoteca.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Real -->
+    <section class="section" style="background: var(--primary-light);">
+        <div class="section-header">
+            <h2>Portafolio Visual</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-photo">
+                <img src="20250602_123818.jpg" alt="Operaciones AIROM">
+                <div class="gallery-photo-info">
+                    <h4 style="color: var(--accent);">Mantenimiento de Campo</h4>
+                    <p style="font-size: 0.8rem;">Ejecución técnica en planta industrial.</p>
+                </div>
+            </div>
+            <div class="gallery-photo">
+                <img src="20240618_102013.jpg" alt="Ingeniería AIROM">
+                <div class="gallery-photo-info">
+                    <h4 style="color: var(--accent);">Sistemas Criogénicos</h4>
+                    <p style="font-size: 0.8rem;">Inspección de sistemas de alta presión.</p>
+                </div>
+            </div>
+            <div class="gallery-photo">
+                <img src="20260220_215216.jpg" alt="Tecnología AIROM">
+                <div class="gallery-photo-info">
+                    <h4 style="color: var(--accent);">Monitoreo Digital</h4>
+                    <p style="font-size: 0.8rem;">Control de procesos mediante tecnología propia.</p>
+                </div>
+            </div>
+            <div class="gallery-photo">
+                <img src="20220202_114709.jpg" alt="Logística AIROM">
+                <div class="gallery-photo-info">
+                    <h4 style="color: var(--accent);">Procura Técnica</h4>
+                    <p style="font-size: 0.8rem;">Suministro de insumos industriales críticos.</p>
+                </div>
+            </div>
+            <div class="gallery-photo">
+                <img src="20220203_095920.jpg" alt="Tratamiento de Agua">
+                <div class="gallery-photo-info">
+                    <h4 style="color: var(--accent);">Ósmosis Inversa</h4>
+                    <p style="font-size: 0.8rem;">Optimización de plantas de agua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section" style="text-align: center;">
+        <div class="section-header">
+            <h2>Conectemos</h2>
+            <div class="bar"></div>
+        </div>
+        <div style="background: var(--glass); display: inline-block; padding: 50px 80px; border-radius: 20px; border: 1px solid var(--glass-border);">
+            <p style="font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; font-weight: 700;">RIF: J-40981894-2</p>
+            <p style="margin-bottom: 10px;"><i class="fas fa-location-dot" style="color: var(--accent); margin-right: 15px;"></i> Barcelona, Edo. Anzoáteguis, Venezuela</p>
+            <p style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color: var(--accent); margin-right: 15px;"></i> airomservzla@gmail.com</p>
+            <p style="margin-bottom: 30px;"><i class="fas fa-phone" style="color: var(--accent); margin-right: 15px;"></i> +58 424-8287969</p>
+            <a href="https://wa.me/584248287969" class="btn-modern">Enviar Mensaje</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/584248287969"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="color: var(--text-dim); font-size: 0.9rem;">&copy; 2026 AIROM SER C.A. - Excelencia en Ingeniería & Tecnología.</p>
+    </footer>
+
+    <a href="https://wa.me/584248287969" class="wp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Efecto scroll en Navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Animación de entrada Hero
+        window.addEventListener('load', () => {
+            document.getElementById('heroContent').classList.add('active');
+        });
+
+        // Reveal al hacer scroll simple
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .timeline-entry, .gallery-photo').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
