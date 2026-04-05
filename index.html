@@ -139,7 +139,7 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url('20240618_102013.jpg');
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url('3de1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -311,7 +311,7 @@
         }
         .timeline-entry:hover .timeline-content-card { background: rgba(255, 255, 255, 0.05); border-color: var(--accent); }
 
-        /* Galería */
+        /* Galería Dynamica con Slideshow */
         .gallery-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -320,21 +320,32 @@
         }
         .gallery-photo { 
             position: relative; 
-            height: 350px; 
+            height: 380px; 
             border-radius: 15px; 
             overflow: hidden; 
             border: 1px solid var(--glass-border);
+            cursor: pointer;
         }
-        .gallery-photo img { width: 100%; height: 100%; object-fit: cover; transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); filter: brightness(0.6); }
-        .gallery-photo:hover img { transform: scale(1.1); filter: brightness(1.1); }
+        .gallery-photo img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: filter 0.8s ease, transform 0.8s ease; 
+            filter: brightness(0.5) saturate(0.8); 
+        }
+        .gallery-photo:hover img { 
+            transform: scale(1.05); 
+            filter: brightness(1.1) saturate(1.2); 
+        }
         .gallery-photo-info {
             position: absolute;
             bottom: 0; left: 0; width: 100%;
             padding: 30px;
-            background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
-            transform: translateY(20px);
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.95));
+            transform: translateY(10px);
             opacity: 0;
             transition: var(--transition);
+            z-index: 2;
         }
         .gallery-photo:hover .gallery-photo-info { transform: translateY(0); opacity: 1; }
 
@@ -529,62 +540,87 @@
             <div class="bar"></div>
         </div>
         <div class="gallery-container">
-            <div class="gallery-photo">
-                <img src="20250602_123818.jpg" alt="Operaciones AIROM">
+            <div class="gallery-photo" data-slides='["1de1.jpg", "1de2.jpg", "1de3.jpg", "1de4.jpg"]'>
+                <img src="1de1.jpg" alt="Mantenimiento de Campo">
                 <div class="gallery-photo-info">
                     <h4 style="color: var(--accent);">Mantenimiento de Campo</h4>
                     <p style="font-size: 0.8rem;">Ejecución técnica en planta industrial.</p>
                 </div>
             </div>
-            <div class="gallery-photo">
-                <img src="20240618_102013.jpg" alt="Ingeniería AIROM">
+            <div class="gallery-photo" data-slides='["2de1.jpg", "2de2.jpg", "2de3.jpg", "2de4.jpg"]'>
+                <img src="2de1.jpg" alt="Sistemas Criogénicos">
                 <div class="gallery-photo-info">
                     <h4 style="color: var(--accent);">Sistemas Criogénicos</h4>
                     <p style="font-size: 0.8rem;">Inspección de sistemas de alta presión.</p>
                 </div>
             </div>
-            <div class="gallery-photo">
-                <img src="20260220_215216.jpg" alt="Tecnología AIROM">
+            <div class="gallery-photo" data-slides='["3de1.jpg", "3de2.jpg", "3de3.jpg", "3de4.jpg"]'>
+                <img src="3de1.jpg" alt="Monitoreo Digital">
                 <div class="gallery-photo-info">
                     <h4 style="color: var(--accent);">Monitoreo Digital</h4>
                     <p style="font-size: 0.8rem;">Control de procesos mediante tecnología propia.</p>
                 </div>
             </div>
-            <div class="gallery-photo">
-                <img src="20220202_114709.jpg" alt="Logística AIROM">
+            <div class="gallery-photo" data-slides='["4de1.jpg", "4de2.jpg", "4de3.jpg", "4de4.jpg"]'>
+                <img src="4de1.jpg" alt="Procura Técnica">
                 <div class="gallery-photo-info">
                     <h4 style="color: var(--accent);">Procura Técnica</h4>
                     <p style="font-size: 0.8rem;">Suministro de insumos industriales críticos.</p>
                 </div>
             </div>
-            <div class="gallery-photo">
-                <img src="20220203_095920.jpg" alt="Tratamiento de Agua">
+            <div class="gallery-photo" data-slides='["5de1.jpg", "5de2.jpg", "5de3.jpg", "5de4.jpg"]'>
+                <img src="5de1.jpg" alt="Ósmosis Inversa">
                 <div class="gallery-photo-info">
                     <h4 style="color: var(--accent);">Ósmosis Inversa</h4>
                     <p style="font-size: 0.8rem;">Optimización de plantas de agua.</p>
                 </div>
             </div>
+            <div class="gallery-photo" data-slides='["6de1.jpg", "6de2.jpg", "6de3.jpg", "6de4.jpg"]'>
+                <img src="6de1.jpg" alt="Equipo Humano AIROM">
+                <div class="gallery-photo-info">
+                    <h4 style="color: var(--accent);">Nuestros equipo humano</h4>
+                    <p style="font-size: 0.8rem;">Personal comprometido con la calidad y seguridad.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="contacto" class="section" style="text-align: center;">
+    <section id="contacto" class="section" style="text-align: center; background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.75)), url('20230523_163813.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="section-header">
             <h2>Conectemos</h2>
             <div class="bar"></div>
         </div>
         <div style="background: var(--glass); display: inline-block; padding: 50px 80px; border-radius: 20px; border: 1px solid var(--glass-border);">
-            <p style="font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; font-weight: 700;">RIF: J-40981894-2</p>
-            <p style="margin-bottom: 10px;"><i class="fas fa-location-dot" style="color: var(--accent); margin-right: 15px;"></i> Barcelona, Edo. Anzoáteguis, Venezuela</p>
-            <p style="margin-bottom: 15px; font-size: 0.95rem; color: var(--text-dim);">
-                <i class="fas fa-envelope" style="color: var(--accent); margin-right: 15px;"></i> 
-                ventas@airomser.com | ceo@airomser.com | it_solutions@airomser.com
+            <p style="font-size: 1.2rem; color: var(--accent); margin-bottom: 25px; font-weight: 700;">RIF: J-40981894-2</p>
+            <p style="margin-bottom: 20px; color: var(--text-dim); font-size: 0.95rem;">
+                <i class="fas fa-location-dot" style="color: var(--accent); margin-right: 15px;"></i> Barcelona, Edo. Anzoátegui, Venezuela
             </p>
-            <p style="margin-bottom: 30px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-flask-vial" style="color: var(--accent); margin-right: 15px; font-size: 1.2rem;"></i> 
-                vidrago.soluction@airomser.com
-            </p>
-            <p style="margin-bottom: 30px;"><i class="fas fa-phone" style="color: var(--accent); margin-right: 15px;"></i> +58 424-8287969</p>
-            <a href="https://wa.me/584248287969" class="btn-modern">Enviar Mensaje</a>
+            
+            <div style="text-align: center; display: inline-block; width: 100%; max-width: 500px; margin: 20px 0;">
+                <p style="margin-bottom: 12px; font-size: 1rem; color: var(--text-dim); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-envelope" style="color: var(--accent); margin-right: 15px; width: 20px; text-align: center;"></i> 
+                    ventas@airomser.com | ceo@airomser.com
+                </p>
+                <p style="margin-bottom: 12px; font-size: 1rem; color: var(--text-dim); display: flex; align-items: center; justify-content: center;">
+                    <span style="display: flex; gap: 5px; margin-right: 15px; color: var(--accent); width: 20px; justify-content: center;">
+                        <i class="fas fa-mobile-screen-button" style="font-size: 0.8rem;"></i>
+                        <i class="fas fa-code-branch" style="font-size: 0.8rem;"></i>
+                    </span>
+                    it_solutions@airomser.com
+                </p>
+                <p style="margin-bottom: 12px; font-size: 1rem; color: var(--text-dim); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-flask-vial" style="color: var(--accent); margin-right: 15px; width: 20px; text-align: center;"></i> 
+                    vidrago.soluction@airomser.com
+                </p>
+                <p style="margin-bottom: 12px; font-size: 1rem; color: var(--text-dim); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-phone" style="color: var(--accent); margin-right: 15px; width: 20px; text-align: center;"></i> 
+                    +58 424-8287969
+                </p>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <a href="https://wa.me/584248287969" class="btn-modern">Enviar Mensaje</a>
+            </div>
         </div>
     </section>
 
@@ -661,6 +697,43 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.8s ease-out';
             observer.observe(el);
+        });
+
+        // Lógica de Galería Dynamica (Slideshow)
+        document.querySelectorAll('.gallery-photo').forEach(card => {
+            const images = JSON.parse(card.dataset.slides || '[]');
+            if (images.length === 0) return;
+
+            const imgElement = card.querySelector('img');
+            const originalSrc = imgElement.src;
+            let currentIndex = 0;
+            let slideInterval = null;
+
+            card.addEventListener('mouseenter', () => {
+                // Previene múltiples intervalos
+                if(slideInterval) clearInterval(slideInterval);
+                
+                slideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    imgElement.src = images[currentIndex];
+                }, 2000); // Cambia cada 2 segundos
+            });
+
+            card.addEventListener('mouseleave', () => {
+                if(slideInterval) clearInterval(slideInterval);
+                imgElement.src = originalSrc;
+                currentIndex = 0;
+            });
+            
+            // Soporte para touch (Móvil)
+            card.addEventListener('touchstart', () => {
+                if (!slideInterval) {
+                    slideInterval = setInterval(() => {
+                        currentIndex = (currentIndex + 1) % images.length;
+                        imgElement.src = images[currentIndex];
+                    }, 2000);
+                }
+            }, {passive: true});
         });
     </script>
 </body>
