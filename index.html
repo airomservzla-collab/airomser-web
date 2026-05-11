@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIROM SER C.A. | Ingeniería & Tecnología Industrial</title>
-    <!-- SEO & Metadata -->
     <meta name="description" content="Portal web oficial de AIROM SER C.A. Ingeniería, mantenimiento criogénico, tratamiento de aguas y soluciones tecnológicas industriales.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -394,10 +393,10 @@
             <li><a href="#tecnologia">Tecnología</a></li>
             <li><a href="#trayectoria">Trayectoria</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            <li><a href="Número D‑U‑N‑S®.html" target="_blank" style="color: var(--accent); border: 1px solid var(--accent-soft); padding: 5px 12px; border-radius: 6px;">DUNS®</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="hero-content" id="heroContent">
             <p style="text-transform: uppercase; letter-spacing: 4px; font-weight: 600; color: var(--accent); margin-bottom: 15px;">Establecido en 2017</p>
@@ -410,7 +409,6 @@
         </div>
     </section>
 
-    <!-- Sección Ingeniería -->
     <section id="ingenieria" class="section">
         <div class="section-header">
             <h2>Ingeniería Especializada</h2>
@@ -443,7 +441,6 @@
         </div>
     </section>
 
-    <!-- Sección Tecnología -->
     <section id="tecnologia" class="section" style="background: var(--primary-light);">
         <div class="section-header">
             <h2>Soluciones Tecnológicas</h2>
@@ -463,7 +460,6 @@
         </div>
     </section>
 
-    <!-- Sección Trayectoria (Síntesis Curricular) -->
     <section id="trayectoria" class="section">
         <div class="section-header">
             <h2>Trayectoria Comprobada</h2>
@@ -472,7 +468,6 @@
         </div>
         
         <div class="timeline-wrapper">
-            <!-- 2017 - 2019 -->
             <div class="timeline-entry">
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2017 - 2019</div>
@@ -488,7 +483,6 @@
                 </div>
             </div>
 
-            <!-- 2020 - 2021 -->
             <div class="timeline-entry">
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2020 - 2021</div>
@@ -502,7 +496,6 @@
                 </div>
             </div>
 
-            <!-- 2022 - 2023 -->
             <div class="timeline-entry">
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2022 - 2023</div>
@@ -516,7 +509,6 @@
                 </div>
             </div>
 
-            <!-- 2024 - 2026 -->
             <div class="timeline-entry">
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2024 - 2026</div>
@@ -533,7 +525,6 @@
         </div>
     </section>
 
-    <!-- Galería Real -->
     <section class="section" style="background: var(--primary-light);">
         <div class="section-header">
             <h2>Portafolio Visual</h2>
@@ -591,7 +582,13 @@
             <div class="bar"></div>
         </div>
         <div style="background: var(--glass); display: inline-block; padding: 50px 80px; border-radius: 20px; border: 1px solid var(--glass-border);">
-            <p style="font-size: 1.2rem; color: var(--accent); margin-bottom: 25px; font-weight: 700;">RIF: J-40981894-2</p>
+            <div style="margin-bottom: 25px;">
+                <p style="font-size: 1.2rem; color: var(--accent); font-weight: 700; margin-bottom: 5px;">RIF: J-40981894-2</p>
+                <a href="Número D‑U‑N‑S®.html" target="_blank" style="text-decoration: none; font-size: 0.85rem; color: #38bdf8; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-certificate"></i> Número DUNS® Autenticado (817310078)
+                </a>
+            </div>
+
             <p style="margin-bottom: 20px; color: var(--text-dim); font-size: 0.95rem;">
                 <i class="fas fa-location-dot" style="color: var(--accent); margin-right: 15px;"></i> Barcelona, Edo. Anzoátegui, Venezuela
             </p>
@@ -710,7 +707,6 @@
             let slideInterval = null;
 
             card.addEventListener('mouseenter', () => {
-                // Previene múltiples intervalos
                 if(slideInterval) clearInterval(slideInterval);
                 
                 slideInterval = setInterval(() => {
