@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - VaccumPRO | AIROM SER C.A.</title>
+    <meta name="description" content="Política de privacidad oficial para la aplicación móvil VaccumPRO de AIROM SER C.A.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;        /* Navy Profundo */
+            --primary-light: #1e293b;  /* Slate */
+            --accent: #ffb703;         /* Amarillo Industrial */
+            --accent-soft: rgba(255, 183, 3, 0.15);
+            --white: #f8fafc;
+            --text-dim: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--primary); 
+            color: var(--white); 
+            line-height: 1.8;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--primary); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 5px; border: 2px solid var(--primary); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        /* Navegación */
+        nav {
+            width: 100%;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            background: rgba(15, 23, 42, 0.6);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+        .logo img { 
+            height: 50px; 
+            filter: brightness(1.1) drop-shadow(0 0 12px rgba(255,255,255,0.25));
+        }
+        .btn-back {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--accent);
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: var(--transition);
+            background: transparent;
+        }
+        .btn-back:hover {
+            background: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 0 15px rgba(255, 183, 3, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Contenido Principal */
+        main {
+            flex: 1;
+            padding: 80px 6%;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            color: var(--white);
+            text-align: center;
+        }
+        h1 span {
+            color: var(--accent);
+        }
+        .subtitle {
+            text-align: center;
+            color: var(--text-dim);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .policy-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .policy-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-top: 35px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255, 183, 3, 0.2);
+            padding-bottom: 8px;
+        }
+        .policy-card h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .policy-card p {
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .policy-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+            padding-left: 10px;
+        }
+        .policy-card ul li {
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+        }
+        .policy-card ul li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer { 
+            background: #020617; 
+            padding: 40px 8%; 
+            text-align: center; 
+            border-top: 1px solid var(--glass-border);
+            margin-top: 80px;
+        }
+        footer p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="Untitled.png" alt="AIROM SER Logo">
+        </div>
+        <a href="index.html" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Volver al Inicio
+        </a>
+    </nav>
+
+    <main>
+        <h1><span>VaccumPRO</span></h1>
+        <p class="subtitle">Política de Privacidad de la Aplicación Móvil</p>
+
+        <div class="policy-card">
+            <h2>1. Introducción y Compromiso</h2>
+            <p>La aplicación móvil <strong>VaccumPRO</strong> (desarrollada y operada por <strong>AIROM SER C.A.</strong>) está diseñada para el monitoreo industrial y control en tiempo real de vacuómetros DigiVac a través de Bluetooth Low Energy (BLE). La privacidad de nuestros usuarios y la seguridad de sus actividades industriales son de máxima prioridad para nosotros.</p>
+
+            <h2>2. Recopilación de Información</h2>
+            <p><strong>VaccumPRO es una herramienta de funcionamiento exclusivamente local.</strong> La aplicación:</p>
+            <ul>
+                <li><strong>NO</strong> recopila, registra ni almacena datos personales de ningún tipo.</li>
+                <li><strong>NO</strong> transmite información del usuario, identificadores de dispositivo ni lecturas técnicas a servidores externos.</li>
+                <li><strong>NO</strong> comparte datos con terceros ni contiene servicios de publicidad o rastreo de comportamiento.</li>
+            </ul>
+
+            <h2>3. Permisos del Dispositivo y Uso Justificado</h2>
+            <p>Para su correcto funcionamiento en entornos industriales, la aplicación requiere los siguientes accesos específicos en su dispositivo móvil:</p>
+            <ul>
+                <li><strong>Conexión y Escaneo Bluetooth (BLE):</strong> Utilizado exclusivamente para descubrir vacuómetros DigiVac activos en el área y recibir sus transmisiones de medición. No se utiliza para ningún otro tipo de intercambio de datos.</li>
+                <li><strong>Servicio de Ubicación (GPS):</strong> Requerido únicamente en dispositivos con versiones de Android anteriores a la 12, debido a que el sistema operativo exige este permiso de forma mandatoria para permitir la búsqueda de dispositivos Bluetooth Low Energy. La aplicación jamás rastrea, registra ni procesa su ubicación real.</li>
+            </ul>
+
+            <h2>4. Almacenamiento Local de Mediciones</h2>
+            <p>El historial de lecturas, observaciones y datos de servicio de desconexión se guardan estrictamente dentro de una base de datos local y privada (SQLite) en el almacenamiento seguro de su propio teléfono. Esta base de datos no es accesible a internet ni por otras aplicaciones, y puede ser eliminada por completo por el usuario en cualquier momento desde los ajustes del sistema operativo borrando los datos de la app.</p>
+
+            <h2>5. Cambios a esta Política</h2>
+            <p>Nos reservamos el derecho de modificar esta política de privacidad ante futuras actualizaciones del software. Cualquier enmienda o adición se publicará formalmente en este mismo portal web.</p>
+
+            <h2>6. Contacto e Información Corporativa</h2>
+            <p>Si tiene inquietudes o preguntas acerca de esta política o la aplicación técnica de VaccumPRO, por favor contáctenos directamente:</p>
+            <ul>
+                <li><strong>Razón Social:</strong> AIROM SER C.A. (RIF: J-40981894-2)</li>
+                <li><strong>Correo de Soporte Técnico:</strong> it_solutions@airomser.com</li>
+                <li><strong>Correo Corporativo:</strong> ventas@airomser.com | ceo@airomser.com</li>
+                <li><strong>Teléfono de Atención:</strong> +58 424-8287969</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AIROM SER C.A. - Excelencia en Ingeniería & Tecnología.</p>
+    </footer>
+
+</body>
+</html>
