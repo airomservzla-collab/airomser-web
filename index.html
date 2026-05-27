@@ -369,9 +369,141 @@
         .wp-button:hover { transform: scale(1.1) rotate(10deg); }
 
         @media (max-width: 992px) {
+            /* Ajustes de navegación y logo en móvil */
+            nav {
+                padding: 10px 4% !important;
+            }
+            .logo {
+                padding: 5px 12px !important;
+            }
+            .logo img {
+                height: 48px !important;
+            }
+
+            /* Botones del Hero adaptables */
+            .hero-buttons {
+                gap: 12px !important;
+            }
+            .btn-modern {
+                padding: 12px 28px !important;
+                font-size: 0.85rem !important;
+                letter-spacing: 1px !important;
+            }
+
+            /* Corrección del overflow horizontal y alineación en la línea de tiempo */
             .timeline-wrapper::before { left: 40px; }
-            .timeline-entry { width: 100%; text-align: left !important; padding-left: 80px; }
+            .timeline-entry { 
+                width: 100% !important; 
+                text-align: left !important; 
+                padding-left: 80px !important; 
+                margin-left: 0 !important; 
+            }
+            .timeline-entry:nth-child(even) { margin-left: 0 !important; }
             .timeline-entry .timeline-dot { left: 32px !important; }
+            
+            .section {
+                padding: 60px 5% !important;
+            }
+        }
+
+        /* App Destacada: VaccumPRO inside service-card */
+        .featured-app {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .featured-app .app-header {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .featured-app .app-header img {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .featured-app:hover .app-header img {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 8px 20px rgba(255, 183, 3, 0.25);
+        }
+        .featured-app h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .featured-app .app-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .featured-app .app-badge i {
+            font-size: 0.75rem !important;
+            color: var(--accent) !important;
+            margin: 0 !important;
+            display: inline-block !important;
+            filter: none !important;
+        }
+        .featured-app .app-desc {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+        .featured-app .app-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .featured-app .playstore-link {
+            display: inline-block;
+        }
+        .featured-app .playstore-link img {
+            height: 48px;
+            width: auto;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .featured-app .playstore-link:hover img {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .featured-app .privacy-link {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: var(--transition);
+            border-bottom: 1px dashed var(--text-dim);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .featured-app .privacy-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        .featured-app .privacy-link i {
+            font-size: 0.75rem !important;
+            color: inherit !important;
+            margin: 0 !important;
+            display: inline-block !important;
+            filter: none !important;
         }
     </style>
 </head>
@@ -402,7 +534,7 @@
             <p style="text-transform: uppercase; letter-spacing: 4px; font-weight: 600; color: var(--accent); margin-bottom: 15px;">Establecido en 2017</p>
             <h1>Ingeniería & <span>Innovación Industrial</span></h1>
             <p>Líderes en mantenimiento criogénico, tratamiento de aguas, quimicos especializados y desarrollo de soluciones tecnológicas de última generación.</p>
-            <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="hero-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                 <a href="#trayectoria" class="btn-modern">Nuestra Historia</a>
                 <a href="#contacto" class="btn-modern" style="background: transparent; color: var(--white); border-color: var(--glass-border);">Contacto</a>
             </div>
@@ -447,10 +579,34 @@
             <div class="bar"></div>
         </div>
         <div class="services-grid">
-            <div class="service-card" style="text-align: left; background: var(--primary);">
+            <div class="service-card" style="text-align: left; background: var(--primary); display: flex; flex-direction: column;">
                 <i class="fas fa-mobile-screen-button"></i>
                 <h3>Desarrollo de Apps</h3>
                 <p>Ensamblaje de aplicaciones móviles (APK) para el control riguroso de procesos industriales y gestión de inventarios en tiempo real.</p>
+                
+                <!-- App Destacada: VaccumPRO -->
+                <div class="featured-app">
+                    <div class="app-header">
+                        <img src="vaccumpro_icon.png" alt="VaccumPRO Icon">
+                        <div>
+                            <h4>VaccumPRO</h4>
+                            <span class="app-badge">
+                                <i class="fas fa-certificate"></i> App Oficial
+                            </span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        Monitoreo industrial y control de vacío en tiempo real vía Bluetooth (BLE) para vacuómetros DigiVac. Grafica lecturas y genera reportes técnicos locales de alta precisión.
+                    </p>
+                    <div class="app-footer">
+                        <a href="https://play.google.com/store/apps/details?id=com.airomser.vaccumpro" target="_blank" class="playstore-link">
+                            <img src="playstore_badge.png" alt="Disponible en Google Play">
+                        </a>
+                        <a href="privacy.html" class="privacy-link">
+                            Privacidad <i class="fas fa-shield-halved"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="service-card" style="text-align: left; background: var(--primary);">
                 <i class="fas fa-code-branch"></i>
