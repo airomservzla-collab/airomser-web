@@ -92,7 +92,7 @@
             transition: var(--transition);
         }
 
-        nav ul { display: flex; list-style: none; gap: 35px; }
+        nav ul { display: flex; list-style: none; gap: 35px; margin-left: auto; }
         nav ul li a { 
             color: var(--text-dim); 
             text-decoration: none; 
@@ -146,7 +146,7 @@
             overflow: hidden;
         }
 
-        .hero-content { z-index: 10; transform: translateY(10px); opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; }
+        .hero-content { z-index: 10; margin-top: 110px; transform: translateY(10px); opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; }
         .hero-content.active { opacity: 1; transform: translateY(0); }
         
         .hero h1 { 
@@ -404,6 +404,11 @@
             .section {
                 padding: 60px 5% !important;
             }
+            .lang-switcher {
+                margin-left: auto !important;
+                margin-right: 15px !important;
+                padding: 4px 10px !important;
+            }
         }
 
         /* App Destacada: VaccumPRO inside service-card */
@@ -505,69 +510,115 @@
             display: inline-block !important;
             filter: none !important;
         }
+
+        /* Selector de Idioma (ES | EN) */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            padding: 5px 12px;
+            border-radius: 8px;
+            gap: 8px;
+            margin-left: 25px;
+            transition: var(--transition);
+        }
+        .lang-switcher:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent-soft);
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .lang-btn:hover {
+            color: var(--white);
+        }
+        .lang-btn.active {
+            color: var(--primary);
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(255, 183, 3, 0.3);
+        }
+        .lang-separator {
+            color: var(--glass-border);
+            font-size: 0.8rem;
+            user-select: none;
+        }
     </style>
 </head>
 
 <body>
 
     <nav id="navbar">
-        <div class="logo">
+        <a href="#inicio" class="logo" style="text-decoration: none;">
             <img src="Untitled.png" alt="AIROM SER Logo">
+        </a>
+        <ul id="navMenu">
+            <li><a href="#ingenieria" data-i18n="nav.ingenieria">Ingeniería</a></li>
+            <li><a href="#tecnologia" data-i18n="nav.tecnologia">Tecnología</a></li>
+            <li><a href="#trayectoria" data-i18n="nav.trayectoria">Trayectoria</a></li>
+            <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
+            <li><a href="Número D‑U‑N‑S®.html" target="_blank" style="color: var(--accent); border: 1px solid var(--accent-soft); padding: 5px 12px; border-radius: 6px;">DUNS®</a></li>
+        </ul>
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="es">ES</button>
+            <span class="lang-separator">|</span>
+            <button class="lang-btn" data-lang="en">EN</button>
         </div>
         <button class="menu-toggle" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <ul id="navMenu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#ingenieria">Ingeniería</a></li>
-            <li><a href="#tecnologia">Tecnología</a></li>
-            <li><a href="#trayectoria">Trayectoria</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-            <li><a href="Número D‑U‑N‑S®.html" target="_blank" style="color: var(--accent); border: 1px solid var(--accent-soft); padding: 5px 12px; border-radius: 6px;">DUNS®</a></li>
-        </ul>
     </nav>
 
     <section id="inicio" class="hero">
         <div class="hero-content" id="heroContent">
-            <p style="text-transform: uppercase; letter-spacing: 4px; font-weight: 600; color: var(--accent); margin-bottom: 15px;">Establecido en 2017</p>
-            <h1>Ingeniería & <span>Innovación Industrial</span></h1>
-            <p>Líderes en mantenimiento criogénico, tratamiento de aguas, quimicos especializados y desarrollo de soluciones tecnológicas de última generación.</p>
+            <p style="text-transform: uppercase; letter-spacing: 4px; font-weight: 600; color: var(--accent); margin-bottom: 15px;" data-i18n="hero.est">Establecido en 2017</p>
+            <h1 data-i18n="hero.title">Ingeniería & <span>Innovación Industrial</span></h1>
+            <p data-i18n="hero.desc">Líderes en mantenimiento criogénico, tratamiento de aguas, quimicos especializados y desarrollo de soluciones tecnológicas de última generación.</p>
             <div class="hero-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="#trayectoria" class="btn-modern">Nuestra Historia</a>
-                <a href="#contacto" class="btn-modern" style="background: transparent; color: var(--white); border-color: var(--glass-border);">Contacto</a>
+                <a href="#trayectoria" class="btn-modern" data-i18n="hero.btn_historia">Nuestra Historia</a>
+                <a href="#contacto" class="btn-modern" style="background: transparent; color: var(--white); border-color: var(--glass-border);" data-i18n="hero.btn_contacto">Contacto</a>
             </div>
         </div>
     </section>
 
     <section id="ingenieria" class="section">
         <div class="section-header">
-            <h2>Ingeniería Especializada</h2>
+            <h2 data-i18n="ing.title">Ingeniería Especializada</h2>
             <div class="bar"></div>
         </div>
         <div class="services-grid">
             <div class="service-card">
                 <i class="fas fa-snowflake"></i>
-                <h3>Sistemas Criogénicos</h3>
-                <p>Mantenimiento mayor y acondicionamiento de tanques para Líquido criogenicos alta o baja Presion de sistemas de gases industriales y medicinales.</p>
+                <h3 data-i18n="ing.crio_title">Sistemas Criogénicos</h3>
+                <p data-i18n="ing.crio_desc">Mantenimiento mayor y acondicionamiento de tanques para Líquido criogenicos alta o baja Presion de sistemas de gases industriales y medicinales.</p>
             </div>
             <div class="service-card" style="border-color: var(--accent);">
                 <i class="fas fa-microchip"></i>
-                <h3>Sistemas de Vacío</h3>
-                <p>Detección técnica de fugas y mantenimiento especializado con bombas de vacío grado laboratorio para procesos industriales críticos.</p>
+                <h3 data-i18n="ing.vacio_title">Sistemas de Vacío</h3>
+                <p data-i18n="ing.vacio_desc">Detección técnica de fugas y mantenimiento especializado con bombas de vacío grado laboratorio para procesos industriales críticos.</p>
             </div>
             <div class="service-card">
                 <i class="fas fa-faucet-drip"></i>
-                <h3>Ósmosis Inversa</h3>
-                <p>Proyectos, Mantenimiento y Procura de plantas de tratamiento aguas industrials, membranas, cartuchos, carbón activado y quimicos asociados.</p>
+                <h3 data-i18n="ing.osmosis_title">Ósmosis Inversa</h3>
+                <p data-i18n="ing.osmosis_desc">Proyectos, Mantenimiento y Procura de plantas de tratamiento aguas industrials, membranas, cartuchos, carbón activado y quimicos asociados.</p>
             </div>
             <div class="service-card vidagro-container">
                 <div class="vidagro-bg"></div>
                 <div class="content-layer">
                     <i class="fas fa-flask-vial"></i>
-                    <h3>Químicos Especializados</h3>
-                    <p>Tratamiento de petróleo (demulsificantes, reductores de viscosidad, secuestrantes), limpieza química industrial en torres, calderas y desaladores. Con nuestra casa química asociada.</p>
+                    <h3 data-i18n="ing.chem_title">Químicos Especializados</h3>
+                    <p data-i18n="ing.chem_desc">Tratamiento de petróleo (demulsificantes, reductores de viscosidad, secuestrantes), limpieza química industrial en torres, calderas y desaladores. Con nuestra casa química asociada.</p>
                 </div>
             </div>
         </div>
@@ -575,34 +626,34 @@
 
     <section id="tecnologia" class="section" style="background: var(--primary-light);">
         <div class="section-header">
-            <h2>Soluciones Tecnológicas</h2>
+            <h2 data-i18n="tec.title">Soluciones Tecnológicas</h2>
             <div class="bar"></div>
         </div>
         <div class="services-grid">
             <div class="service-card" style="text-align: left; background: var(--primary); display: flex; flex-direction: column;">
                 <i class="fas fa-mobile-screen-button"></i>
-                <h3>Desarrollo de Apps</h3>
-                <p>Ensamblaje de aplicaciones móviles (APK) para el control riguroso de procesos industriales y gestión de inventarios en tiempo real.</p>
+                <h3 data-i18n="tec.apps_title">Desarrollo de Apps</h3>
+                <p data-i18n="tec.apps_desc">Ensamblaje de aplicaciones móviles (APK) para el control riguroso de procesos industriales y gestión de inventarios en tiempo real.</p>
                 
                 <!-- App Destacada: VaccumPRO -->
                 <div class="featured-app">
                     <div class="app-header">
                         <img src="vaccumpro_icon.png" alt="VaccumPRO Icon">
                         <div>
-                            <h4>VaccumPRO</h4>
-                            <span class="app-badge">
+                            <h4 data-i18n="tec.vaccum_title">VaccumPRO</h4>
+                            <span class="app-badge" data-i18n="tec.vaccum_badge">
                                 <i class="fas fa-certificate"></i> App Oficial
                             </span>
                         </div>
                     </div>
-                    <p class="app-desc">
+                    <p class="app-desc" data-i18n="tec.vaccum_desc">
                         Monitoreo industrial y control de vacío en tiempo real vía Bluetooth (BLE) para vacuómetros DigiVac. Grafica lecturas y genera reportes técnicos locales de alta precisión.
                     </p>
                     <div class="app-footer">
                         <a href="https://play.google.com/store/apps/details?id=com.airomser.vaccumpro" target="_blank" class="playstore-link">
-                            <img src="playstore_badge.png" alt="Disponible en Google Play">
+                            <img src="playstore_badge.png" alt="Disponible en Google Play" id="playstoreBadgeImg">
                         </a>
-                        <a href="privacy.html" class="privacy-link">
+                        <a href="privacy.html" class="privacy-link" data-i18n="tec.vaccum_privacy">
                             Privacidad <i class="fas fa-shield-halved"></i>
                         </a>
                     </div>
@@ -610,16 +661,16 @@
             </div>
             <div class="service-card" style="text-align: left; background: var(--primary);">
                 <i class="fas fa-code-branch"></i>
-                <h3>Sistemas a Medida</h3>
-                <p>Creación de software personalizado para la integración de bases de datos y gestión técnica operativa de activos industriales.</p>
+                <h3 data-i18n="tec.custom_title">Sistemas a Medida</h3>
+                <p data-i18n="tec.custom_desc">Creación de software personalizado para la integración de bases de datos y gestión técnica operativa de activos industriales.</p>
             </div>
         </div>
     </section>
 
     <section id="trayectoria" class="section">
         <div class="section-header">
-            <h2>Trayectoria Comprobada</h2>
-            <p style="color: var(--text-dim); margin-top: 10px;">Más de 9 años de experiencia ejecutando proyectos de alta complejidad.</p>
+            <h2 data-i18n="tray.title">Trayectoria Comprobada</h2>
+            <p style="color: var(--text-dim); margin-top: 10px;" data-i18n="tray.desc">Más de 9 años de experiencia ejecutando proyectos de alta complejidad.</p>
             <div class="bar"></div>
         </div>
         
@@ -628,7 +679,7 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2017 - 2019</div>
                 <div class="timeline-content-card">
-                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;">
+                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;" data-i18n="tray.17_19_list">
                         <li style="margin-bottom: 8px;"><b>PETROLEUM CONTRACTOR C.A.</b><br>• Suministro de aceites (valvulina y Diésel).</li>
                         <li style="margin-bottom: 8px;"><b>R&M CHEMICAL</b><br>• Suministros de monoethanolamina al 99%.<br>• Mantenimiento en plantas de aguas industriales.</li>
                         <li style="margin-bottom: 8px;"><b>PEQUIVEN S.A.</b><br>• Suministros y sustitución de válvula de gas cloro.<br>• Suministro de hipoclorito al 12%.</li>
@@ -643,7 +694,7 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2020 - 2021</div>
                 <div class="timeline-content-card">
-                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;">
+                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;" data-i18n="tray.20_21_list">
                         <li style="margin-bottom: 8px;"><b>PDVSA Termo Eléctrica</b><br>• Reparación en módulo desinfección química (TK-22).</li>
                         <li style="margin-bottom: 8px;"><b>SUINTER C.A. / BIFURCA C.A.</b><br>• Suministro de químicos especializados.<br>• Acondicionamiento de unidades para recolección de catalizadores.</li>
                         <li style="margin-bottom: 8px;"><b>PDVSA Petropiar</b><br>• Suministro de membranas y cartuchos para unidad 42 de ósmosis.<br>• Suministro de Carbón Activado PROCURA.</li>
@@ -656,7 +707,7 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2022 - 2023</div>
                 <div class="timeline-content-card">
-                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;">
+                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;" data-i18n="tray.22_23_list">
                         <li style="margin-bottom: 8px;"><b>FEMSA VALENCIA / BARCELONA</b><br>• Mantenimiento de sistemas de Nitrógeno y CO2.<br>• Mejora en vacío para tanques criogénicos.<br>• Suministro e instalaciones de válvulas de seguridad.<br>• Sistemas de distribución de Nitrógeno gaseoso.</li>
                         <li style="margin-bottom: 8px;"><b>METOR S.A.</b><br>• Servicio de izamiento con grúa telescópica en tanques criogénicos.<br>• Facilidades y mantenimiento para instalación provisional de almacenamiento.<br>• Instalación y desinstalación de Tanques Criogénicos en complejo petroquímico.</li>
                         <li style="margin-bottom: 8px;"><b>PDVSA Petrocedeño</b><br>• Mejora y Acondicionamiento tanque 76000 gal de nitrógeno.</li>
@@ -669,7 +720,7 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-year">2024 - 2026</div>
                 <div class="timeline-content-card">
-                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;">
+                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem; line-height: 1.5;" data-i18n="tray.24_26_list">
                         <li style="margin-bottom: 8px;"><b>PDVSA REFINERÍA PLC</b><br>• Asistencia técnica Unidad 94 Planta separadora de Gases.</li>
                         <li style="margin-bottom: 8px;"><b>PETROALIANZA (EL TIGRE/OCCIDENTE) / INTEGRA</b><br>• Inspección, medición y mantenimiento a sistemas de almacenamiento de Nitrógeno Líquido.<br>• Gabarra de coiled tubing y válvulas de seguridad ISOTANQUE.</li>
                         <li style="margin-bottom: 8px;"><b>PETROPIAR (COVSA)</b><br>• Mantenimiento Mayor de los Desaladores en complejo mejorador.</li>
@@ -683,50 +734,50 @@
 
     <section class="section" style="background: var(--primary-light);">
         <div class="section-header">
-            <h2>Portafolio Visual</h2>
+            <h2 data-i18n="port.title">Portafolio Visual</h2>
             <div class="bar"></div>
         </div>
         <div class="gallery-container">
             <div class="gallery-photo" data-slides='["1de1.JPG", "1de2.jpg", "1de3.jpg", "1de4.jpg"]'>
                 <img src="1de1.JPG" alt="Mantenimiento de Campo">
                 <div class="gallery-photo-info">
-                    <h4 style="color: var(--accent);">Mantenimiento de Campo</h4>
-                    <p style="font-size: 0.8rem;">Ejecución técnica en planta industrial.</p>
+                    <h4 style="color: var(--accent);" data-i18n="port.c1_title">Mantenimiento de Campo</h4>
+                    <p style="font-size: 0.8rem;" data-i18n="port.c1_desc">Ejecución técnica en planta industrial.</p>
                 </div>
             </div>
             <div class="gallery-photo" data-slides='["2de1.jpg", "2de2.jpg", "2de3.jpg", "2de4.jpg"]'>
                 <img src="2de1.jpg" alt="Sistemas Criogénicos">
                 <div class="gallery-photo-info">
-                    <h4 style="color: var(--accent);">Sistemas Criogénicos</h4>
-                    <p style="font-size: 0.8rem;">Inspección de sistemas de alta presión.</p>
+                    <h4 style="color: var(--accent);" data-i18n="port.c2_title">Sistemas Criogénicos</h4>
+                    <p style="font-size: 0.8rem;" data-i18n="port.c2_desc">Inspección de sistemas de alta presión.</p>
                 </div>
             </div>
             <div class="gallery-photo" data-slides='["3de1.jpg", "3de2.jpg", "3de3.jpg", "3de4.jpg"]'>
                 <img src="3de1.jpg" alt="Monitoreo Digital">
                 <div class="gallery-photo-info">
-                    <h4 style="color: var(--accent);">Monitoreo Digital</h4>
-                    <p style="font-size: 0.8rem;">Control de procesos mediante tecnología propia.</p>
+                    <h4 style="color: var(--accent);" data-i18n="port.c3_title">Monitoreo Digital</h4>
+                    <p style="font-size: 0.8rem;" data-i18n="port.c3_desc">Control de procesos mediante tecnología propia.</p>
                 </div>
             </div>
             <div class="gallery-photo" data-slides='["4de1.jpg", "4de2.jpg", "4de3.jpg", "4de4.jpg"]'>
                 <img src="4de1.jpg" alt="Procura Técnica">
                 <div class="gallery-photo-info">
-                    <h4 style="color: var(--accent);">Procura Técnica</h4>
-                    <p style="font-size: 0.8rem;">Suministro de insumos industriales críticos.</p>
+                    <h4 style="color: var(--accent);" data-i18n="port.c4_title">Procura Técnica</h4>
+                    <p style="font-size: 0.8rem;" data-i18n="port.c4_desc">Suministro de insumos industriales críticos.</p>
                 </div>
             </div>
             <div class="gallery-photo" data-slides='["5de1.jpg", "5de2.jpg", "5de3.jpg", "5de4.jpg"]'>
                 <img src="5de1.jpg" alt="Ósmosis Inversa">
                 <div class="gallery-photo-info">
-                    <h4 style="color: var(--accent);">Ósmosis Inversa</h4>
-                    <p style="font-size: 0.8rem;">Optimización de plantas de agua.</p>
+                    <h4 style="color: var(--accent);" data-i18n="port.c5_title">Ósmosis Inversa</h4>
+                    <p style="font-size: 0.8rem;" data-i18n="port.c5_desc">Optimización de plantas de agua.</p>
                 </div>
             </div>
             <div class="gallery-photo" data-slides='["6de1.jpg", "6de2.jpg", "6de3.jpg", "6de4.jpg"]'>
                 <img src="6de1.jpg" alt="Equipo Humano AIROM">
                 <div class="gallery-photo-info">
-                    <h4 style="color: var(--accent);">Nuestros equipo humano</h4>
-                    <p style="font-size: 0.8rem;">Personal comprometido con la calidad y seguridad.</p>
+                    <h4 style="color: var(--accent);" data-i18n="port.c6_title">Nuestros equipo humano</h4>
+                    <p style="font-size: 0.8rem;" data-i18n="port.c6_desc">Personal comprometido con la calidad y seguridad.</p>
                 </div>
             </div>
         </div>
@@ -734,18 +785,18 @@
 
     <section id="contacto" class="section" style="text-align: center; background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.75)), url('20230523_163813.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="section-header">
-            <h2>Conectemos</h2>
+            <h2 data-i18n="cont.title">Conectemos</h2>
             <div class="bar"></div>
         </div>
         <div style="background: var(--glass); display: inline-block; padding: 50px 80px; border-radius: 20px; border: 1px solid var(--glass-border);">
             <div style="margin-bottom: 25px;">
                 <p style="font-size: 1.2rem; color: var(--accent); font-weight: 700; margin-bottom: 5px;">RIF: J-40981894-2</p>
-                <a href="Número D‑U‑N‑S®.html" target="_blank" style="text-decoration: none; font-size: 0.85rem; color: #38bdf8; display: inline-flex; align-items: center; gap: 8px;">
+                <a href="Número D‑U‑N‑S®.html" target="_blank" style="text-decoration: none; font-size: 0.85rem; color: #38bdf8; display: inline-flex; align-items: center; gap: 8px;" data-i18n="cont.duns">
                     <i class="fas fa-certificate"></i> Número DUNS® Autenticado (817310078)
                 </a>
             </div>
 
-            <p style="margin-bottom: 20px; color: var(--text-dim); font-size: 0.95rem;">
+            <p style="margin-bottom: 20px; color: var(--text-dim); font-size: 0.95rem;" data-i18n="cont.loc">
                 <i class="fas fa-location-dot" style="color: var(--accent); margin-right: 15px;"></i> Barcelona, Edo. Anzoátegui, Venezuela
             </p>
             
@@ -772,7 +823,7 @@
             </div>
             
             <div style="margin-top: 20px;">
-                <a href="https://wa.me/584248287969" class="btn-modern">Enviar Mensaje</a>
+                <a href="https://wa.me/584248287969" class="btn-modern" data-i18n="cont.btn_send">Enviar Mensaje</a>
             </div>
         </div>
     </section>
@@ -783,8 +834,8 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/584248287969"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 12px;">&copy; 2026 AIROM SER C.A. - Excelencia en Ingeniería & Tecnología.</p>
-        <p style="font-size: 0.85rem;"><a href="privacy.html" style="color: var(--accent); text-decoration: none; font-weight: 600; opacity: 0.8; transition: var(--transition);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"><i class="fas fa-shield-halved" style="margin-right: 6px;"></i>Política de Privacidad - VaccumPRO</a></p>
+        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 12px;" data-i18n="footer.text">&copy; 2026 AIROM SER C.A. - Excelencia en Ingeniería & Tecnología.</p>
+        <p style="font-size: 0.85rem;"><a href="privacy.html" style="color: var(--accent); text-decoration: none; font-weight: 600; opacity: 0.8; transition: var(--transition);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" data-i18n="footer.privacy"><i class="fas fa-shield-halved" style="margin-right: 6px;"></i>Política de Privacidad - VaccumPRO</a></p>
     </footer>
 
     <a href="https://wa.me/584248287969" class="wp-button" target="_blank">
@@ -792,6 +843,234 @@
     </a>
 
     <script>
+        // Diccionario de Traducción (ES / EN)
+        const translations = {
+            es: {
+                "nav.inicio": "Inicio",
+                "nav.ingenieria": "Ingeniería",
+                "nav.tecnologia": "Tecnología",
+                "nav.trayectoria": "Trayectoria",
+                "nav.contacto": "Contacto",
+                
+                "hero.est": "Establecido en 2017",
+                "hero.title": "Ingeniería & <span>Innovación Industrial</span>",
+                "hero.desc": "Líderes en mantenimiento criogénico, tratamiento de aguas, quimicos especializados y desarrollo de soluciones tecnológicas de última generación.",
+                "hero.btn_historia": "Nuestra Historia",
+                "hero.btn_contacto": "Contacto",
+                
+                "ing.title": "Ingeniería Especializada",
+                "ing.crio_title": "Sistemas Criogénicos",
+                "ing.crio_desc": "Mantenimiento mayor y acondicionamiento de tanques para Líquido criogenicos alta o baja Presion de sistemas de gases industriales y medicinales.",
+                "ing.vacio_title": "Sistemas de Vacío",
+                "ing.vacio_desc": "Detección técnica de fugas y mantenimiento especializado con bombas de vacío grado laboratorio para procesos industriales críticos.",
+                "ing.osmosis_title": "Ósmosis Inversa",
+                "ing.osmosis_desc": "Proyectos, Mantenimiento y Procura de plantas de tratamiento aguas industrials, membranas, cartuchos, carbón activado y quimicos asociados.",
+                "ing.chem_title": "Químicos Especializados",
+                "ing.chem_desc": "Tratamiento de petróleo (demulsificantes, reductores de viscosidad, secuestrantes), limpieza química industrial en torres, calderas y desaladores. Con nuestra casa química asociada.",
+                
+                "tec.title": "Soluciones Tecnológicas",
+                "tec.apps_title": "Desarrollo de Apps",
+                "tec.apps_desc": "Ensamblaje de aplicaciones móviles (APK) para el control riguroso de procesos industriales y gestión de inventarios en tiempo real.",
+                "tec.vaccum_title": "VaccumPRO",
+                "tec.vaccum_badge": "<i class=\"fas fa-certificate\"></i> App Oficial",
+                "tec.vaccum_desc": "Monitoreo industrial y control de vacío en tiempo real vía Bluetooth (BLE) para vacuómetros DigiVac. Grafica lecturas y genera reportes técnicos locales de alta precisión.",
+                "tec.vaccum_privacy": "Privacidad <i class=\"fas fa-shield-halved\"></i>",
+                "tec.custom_title": "Sistemas a Medida",
+                "tec.custom_desc": "Creación de software personalizado para la integración de bases de datos y gestión técnica operativa de activos industriales.",
+                
+                "tray.title": "Trayectoria Comprobada",
+                "tray.desc": "Más de 9 años de experiencia ejecutando proyectos de alta complejidad.",
+                "tray.17_19_list": `
+                    <li style="margin-bottom: 8px;"><b>PETROLEUM CONTRACTOR C.A.</b><br>• Suministro de aceites (valvulina y Diésel).</li>
+                    <li style="margin-bottom: 8px;"><b>R&M CHEMICAL</b><br>• Suministros de monoethanolamina al 99%.<br>• Mantenimiento en plantas de aguas industriales.</li>
+                    <li style="margin-bottom: 8px;"><b>PEQUIVEN S.A.</b><br>• Suministros y sustitución de válvula de gas cloro.<br>• Suministro de hipoclorito al 12%.</li>
+                    <li style="margin-bottom: 8px;"><b>PDVSA Termo Eléctrica</b><br>• Servicio de arranque planta de tratamiento de aguas industriales.</li>
+                    <li style="margin-bottom: 8px;"><b>ALIMENTOS MERU C.A.</b><br>• Suministro de químicos.</li>
+                    <li style="margin-bottom: 8px;"><b>KORVENE C.A.</b><br>• Suministro de fluidos y servicio para compresores de aires.</li>
+                `,
+                "tray.20_21_list": `
+                    <li style="margin-bottom: 8px;"><b>PDVSA Termo Eléctrica</b><br>• Reparación en módulo desinfección química (TK-22).</li>
+                    <li style="margin-bottom: 8px;"><b>SUINTER C.A. / BIFURCA C.A.</b><br>• Suministro de químicos especializados.<br>• Acondicionamiento de unidades para recolección de catalizadores.</li>
+                    <li style="margin-bottom: 8px;"><b>PDVSA Petropiar</b><br>• Suministro de membranas y cartuchos para unidad 42 de ósmosis.<br>• Suministro de Carbón Activado PROCURA.</li>
+                    <li style="margin-bottom: 8px;"><b>INVEGAS S.C.A. (JOSE)</b><br>• Servicio en estaciones de regulación de Nitrógeno y tanques de almacenamiento (Petropiar, Petrocedeño, Metor, Fertinitro, entre otros).</li>
+                `,
+                "tray.22_23_list": `
+                    <li style="margin-bottom: 8px;"><b>FEMSA VALENCIA / BARCELONA</b><br>• Mantenimiento de sistemas de Nitrógeno y CO2.<br>• Mejora en vacío para tanques criogénicos.<br>• Suministro e instalaciones de válvulas de seguridad.<br>• Sistemas de distribución de Nitrógeno gaseoso.</li>
+                    <li style="margin-bottom: 8px;"><b>METOR S.A.</b><br>• Servicio de izamiento con grúa telescópica en tanques criogénicos.<br>• Facilidades y mantenimiento para instalación provisional de almacenamiento.<br>• Instalación y desinstalación de Tanques Criogénicos en complejo petroquímico.</li>
+                    <li style="margin-bottom: 8px;"><b>PDVSA Petrocedeño</b><br>• Mejora y Acondicionamiento tanque 76000 gal de nitrógeno.</li>
+                    <li style="margin-bottom: 8px;"><b>SUPERMETANOL / INTEGRA / CLÍNICA LA GUAIRA</b><br>• Mantenimiento estaciones de regulación y calibración de válvulas.<br>• Sistema de suministros de oxígeno.</li>
+                `,
+                "tray.24_26_list": `
+                    <li style="margin-bottom: 8px;"><b>PDVSA REFINERÍA PLC</b><br>• Asistencia técnica Unidad 94 Planta separadora de Gases.</li>
+                    <li style="margin-bottom: 8px;"><b>PETROALIANZA (EL TIGRE/OCCIDENTE) / INTEGRA</b><br>• Inspección, medición y mantenimiento a sistemas de almacenamiento de Nitrógeno Líquido.<br>• Gabarra de coiled tubing y válvulas de seguridad ISOTANQUE.</li>
+                    <li style="margin-bottom: 8px;"><b>PETROPIAR (COVSA)</b><br>• Mantenimiento Mayor de los Desaladores en complejo mejorador.</li>
+                    <li style="margin-bottom: 8px;"><b>YANLU C.A. / LONGKEDA C.A.</b><br>• Suministro de Aceites Especializados e inyección pozos petroleros.</li>
+                    <li style="margin-bottom: 8px;"><b>PDVSA Petróleo S.A. (Chaure)</b><br>• Tratamiento agua cruda y Unidad de destilación en laboratorio Nucleoteca.</li>
+                `,
+                
+                "port.title": "Portafolio Visual",
+                "port.c1_title": "Mantenimiento de Campo",
+                "port.c1_desc": "Ejecución técnica en planta industrial.",
+                "port.c2_title": "Sistemas Criogénicos",
+                "port.c2_desc": "Inspección de sistemas de alta presión.",
+                "port.c3_title": "Monitoreo Digital",
+                "port.c3_desc": "Control de procesos mediante tecnología propia.",
+                "port.c4_title": "Procura Técnica",
+                "port.c4_desc": "Suministro de insumos industriales críticos.",
+                "port.c5_title": "Ósmosis Inversa",
+                "port.c5_desc": "Optimización de plantas de agua.",
+                "port.c6_title": "Nuestros equipo humano",
+                "port.c6_desc": "Personal comprometido con la calidad y seguridad.",
+                
+                "cont.title": "Conectemos",
+                "cont.duns": "<i class=\"fas fa-certificate\"></i> Número DUNS® Autenticado (817310078)",
+                "cont.loc": "<i class=\"fas fa-location-dot\" style=\"color: var(--accent); margin-right: 15px;\"></i> Barcelona, Edo. Anzoátegui, Venezuela",
+                "cont.btn_send": "Enviar Mensaje",
+                
+                "footer.text": "&copy; 2026 AIROM SER C.A. - Excelencia en Ingeniería & Tecnología.",
+                "footer.privacy": "<i class=\"fas fa-shield-halved\" style=\"margin-right: 6px;\"></i>Política de Privacidad - VaccumPRO"
+            },
+            en: {
+                "nav.inicio": "Home",
+                "nav.ingenieria": "Engineering",
+                "nav.tecnologia": "Technology",
+                "nav.trayectoria": "History",
+                "nav.contacto": "Contact",
+                
+                "hero.est": "Established in 2017",
+                "hero.title": "Engineering & <span>Industrial Innovation</span>",
+                "hero.desc": "Leaders in cryogenic maintenance, water treatment, specialized chemicals, and development of next-generation technological solutions.",
+                "hero.btn_historia": "Our History",
+                "hero.btn_contacto": "Contact",
+                
+                "ing.title": "Specialized Engineering",
+                "ing.crio_title": "Cryogenic Systems",
+                "ing.crio_desc": "Major maintenance and conditioning of tanks for high or low pressure cryogenic liquid of industrial and medicinal gas systems.",
+                "ing.vacio_title": "Vacuum Systems",
+                "ing.vacio_desc": "Technical leak detection and specialized maintenance with laboratory-grade vacuum pumps for critical industrial processes.",
+                "ing.osmosis_title": "Reverse Osmosis",
+                "ing.osmosis_desc": "Projects, maintenance, and procurement of industrial water treatment plants, membranes, cartridges, activated carbon, and associated chemicals.",
+                "ing.chem_title": "Specialized Chemicals",
+                "ing.chem_desc": "Petroleum treatment (demulsifiers, viscosity reducers, scavengers), industrial chemical cleaning in towers, boilers, and desalters. With our associated chemical company.",
+                
+                "tec.title": "Technological Solutions",
+                "tec.apps_title": "App Development",
+                "tec.apps_desc": "Development of mobile applications (APK) for rigorous control of industrial processes and real-time inventory management.",
+                "tec.vaccum_title": "VaccumPRO",
+                "tec.vaccum_badge": "<i class=\"fas fa-certificate\"></i> Official App",
+                "tec.vaccum_desc": "Industrial monitoring and real-time vacuum control via Bluetooth (BLE) for DigiVac vacuum gauges. Graphs readings and generates high-precision local technical reports.",
+                "tec.vaccum_privacy": "Privacy <i class=\"fas fa-shield-halved\"></i>",
+                "tec.custom_title": "Custom Systems",
+                "tec.custom_desc": "Custom software development for database integration and operational technical management of industrial assets.",
+                
+                "tray.title": "Proven Track Record",
+                "tray.desc": "Over 9 years of experience executing highly complex projects.",
+                "tray.17_19_list": `
+                    <li style="margin-bottom: 8px;"><b>PETROLEUM CONTRACTOR C.A.</b><br>• Gear lube and diesel supply.</li>
+                    <li style="margin-bottom: 8px;"><b>R&M CHEMICAL</b><br>• Supply of 99% monoethanolamine.<br>• Maintenance of industrial water plants.</li>
+                    <li style="margin-bottom: 8px;"><b>PEQUIVEN S.A.</b><br>• Supply and replacement of chlorine gas valve.<br>• Supply of 12% hypochlorite.</li>
+                    <li style="margin-bottom: 8px;"><b>PDVSA Termo Eléctrica</b><br>• Commissioning service for industrial water treatment plant.</li>
+                    <li style="margin-bottom: 8px;"><b>ALIMENTOS MERU C.A.</b><br>• Chemical supplies.</li>
+                    <li style="margin-bottom: 8px;"><b>KORVENE C.A.</b><br>• Fluid supply and service for air compressors.</li>
+                `,
+                "tray.20_21_list": `
+                    <li style="margin-bottom: 8px;"><b>PDVSA Termo Eléctrica</b><br>• Repair of chemical disinfection module (TK-22).</li>
+                    <li style="margin-bottom: 8px;"><b>SUINTER C.A. / BIFURCA C.A.</b><br>• Supply of specialized chemicals.<br>• Conditioning of catalyst collection units.</li>
+                    <li style="margin-bottom: 8px;"><b>PDVSA Petropiar</b><br>• Supply of membranes and cartridges for osmosis unit 42.<br>• Supply of PROCURA Activated Carbon.</li>
+                    <li style="margin-bottom: 8px;"><b>INVEGAS S.C.A. (JOSE)</b><br>• Service at Nitrogen regulation stations and storage tanks (Petropiar, Petrocedeño, Metor, Fertinitro, among others).</li>
+                `,
+                "tray.22_23_list": `
+                    <li style="margin-bottom: 8px;"><b>FEMSA VALENCIA / BARCELONA</b><br>• Maintenance of Nitrogen and CO2 systems.<br>• Vacuum improvement for cryogenic tanks.<br>• Supply and installation of safety valves.<br>• Nitrogen gas distribution systems.</li>
+                    <li style="margin-bottom: 8px;"><b>METOR S.A.</b><br>• Lifting service with telescopic crane on cryogenic tanks.<br>• Facilities and maintenance for temporary storage installations.<br>• Installation and deinstallation of Cryogenic Tanks in petrochemical complex.</li>
+                    <li style="margin-bottom: 8px;"><b>PDVSA Petrocedeño</b><br>• Improvement and conditioning of a 76,000-gal Nitrogen tank.</li>
+                    <li style="margin-bottom: 8px;"><b>SUPERMETANOL / INTEGRA / CLINICA LA GUAIRA</b><br>• Maintenance of regulation stations and calibration of valves.<br>• Oxygen supply system.</li>
+                `,
+                "tray.24_26_list": `
+                    <li style="margin-bottom: 8px;"><b>PDVSA REFINERÍA PLC</b><br>• Technical assistance for Unit 94 Gas Separation Plant.</li>
+                    <li style="margin-bottom: 8px;"><b>PETROALIANZA (EL TIGRE/WEST) / INTEGRA</b><br>• Inspection, measurement, and maintenance of Liquid Nitrogen storage systems.<br>• Coiled tubing barge and ISOTANK safety valves.</li>
+                    <li style="margin-bottom: 8px;"><b>PETROPIAR (COVSA)</b><br>• Major maintenance of desalters in the upgrader complex.</li>
+                    <li style="margin-bottom: 8px;"><b>YANLU C.A. / LONGKEDA C.A.</b><br>• Supply of specialized oils and oil well injection.</li>
+                    <li style="margin-bottom: 8px;"><b>PDVSA Petróleo S.A. (Chaure)</b><br>• Raw water treatment and distillation unit in the Nucleoteca laboratory.</li>
+                `,
+                
+                "port.title": "Visual Portfolio",
+                "port.c1_title": "Field Maintenance",
+                "port.c1_desc": "Technical execution in industrial plant.",
+                "port.c2_title": "Cryogenic Systems",
+                "port.c2_desc": "Inspection of high-pressure systems.",
+                "port.c3_title": "Digital Monitoring",
+                "port.c3_desc": "Process control through proprietary technology.",
+                "port.c4_title": "Technical Procurement",
+                "port.c4_desc": "Supply of critical industrial supplies.",
+                "port.c5_title": "Reverse Osmosis",
+                "port.c5_desc": "Water plant optimization.",
+                "port.c6_title": "Our human team",
+                "port.c6_desc": "Staff committed to quality and safety.",
+                
+                "cont.title": "Let's Connect",
+                "cont.duns": "<i class=\"fas fa-certificate\"></i> Authenticated DUNS® Number (817310078)",
+                "cont.loc": "<i class=\"fas fa-location-dot\" style=\"color: var(--accent); margin-right: 15px;\"></i> Barcelona, Edo. Anzoategui, Venezuela",
+                "cont.btn_send": "Send Message",
+                
+                "footer.text": "&copy; 2026 AIROM SER C.A. - Excellence in Engineering & Technology.",
+                "footer.privacy": "<i class=\"fas fa-shield-halved\" style=\"margin-right: 6px;\"></i>Privacy Policy - VaccumPRO"
+            }
+        };
+
+        // Función para cambiar de idioma
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Cambiar insignia de Google Play
+            const playstoreBadge = document.getElementById('playstoreBadgeImg');
+            if (playstoreBadge) {
+                if (lang === 'en') {
+                    playstoreBadge.src = 'playstore_badge_en.png';
+                    playstoreBadge.alt = 'Get it on Google Play';
+                } else {
+                    playstoreBadge.src = 'playstore_badge.png';
+                    playstoreBadge.alt = 'Disponible en Google Play';
+                }
+            }
+
+            // Cambiar botón activo en el switcher
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Guardar preferencia
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Inicializar Idioma al cargar la página o al construir el DOM
+        const savedLanguagePreference = localStorage.getItem('preferredLanguage');
+        const activeLang = savedLanguagePreference || 'es';
+        
+        // Ejecutar traducción lo más pronto posible
+        setLanguage(activeLang);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Re-ejecutar por si acaso para amarrar los eventos y estado del switcher
+            setLanguage(activeLang);
+            
+            // Asignar eventos de click a los botones del selector
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const lang = e.currentTarget.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+        });
+
         // Efecto scroll en Navbar
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
