@@ -552,6 +552,19 @@
             font-size: 0.8rem;
             user-select: none;
         }
+
+        /* Grid para la sección tecnología: 2 columnas en PC, 1 en móvil */
+        .tech-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+        @media (max-width: 992px) {
+            .tech-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        .p2ptoday-card:hover {
+            border-color: #20b2aa !important;
+        }
     </style>
 </head>
 
@@ -603,7 +616,7 @@
                 <h3 data-i18n="ing.crio_title">Sistemas Criogénicos</h3>
                 <p data-i18n="ing.crio_desc">Mantenimiento mayor y acondicionamiento de tanques para Líquido criogenicos alta o baja Presion de sistemas de gases industriales y medicinales.</p>
             </div>
-            <div class="service-card" style="border-color: var(--accent);">
+            <div class="service-card">
                 <i class="fas fa-microchip"></i>
                 <h3 data-i18n="ing.vacio_title">Sistemas de Vacío</h3>
                 <p data-i18n="ing.vacio_desc">Detección técnica de fugas y mantenimiento especializado con bombas de vacío grado laboratorio para procesos industriales críticos.</p>
@@ -629,14 +642,24 @@
             <h2 data-i18n="tec.title">Soluciones Tecnológicas</h2>
             <div class="bar"></div>
         </div>
-        <div class="services-grid">
-            <div class="service-card" style="text-align: left; background: var(--primary); display: flex; flex-direction: column;">
+        <div class="services-grid tech-grid">
+            <!-- Bloque 1: Desarrollo de Apps -->
+            <div class="service-card" style="text-align: left; background: var(--primary);">
                 <i class="fas fa-mobile-screen-button"></i>
                 <h3 data-i18n="tec.apps_title">Desarrollo de Apps</h3>
                 <p data-i18n="tec.apps_desc">Ensamblaje de aplicaciones móviles (APK) para el control riguroso de procesos industriales y gestión de inventarios en tiempo real.</p>
-                
-                <!-- App Destacada: VaccumPRO -->
-                <div class="featured-app">
+            </div>
+
+            <!-- Bloque 2: Sistemas a Medida -->
+            <div class="service-card" style="text-align: left; background: var(--primary);">
+                <i class="fas fa-code-branch"></i>
+                <h3 data-i18n="tec.custom_title">Sistemas a Medida</h3>
+                <p data-i18n="tec.custom_desc">Creación de software personalizado para la integración de bases de datos y gestión técnica operativa de activos industriales.</p>
+            </div>
+
+            <!-- Bloque 3: VaccumPRO -->
+            <div class="service-card" style="text-align: left; background: var(--primary); display: flex; flex-direction: column;">
+                <div class="featured-app" style="margin-top: 0; padding-top: 0; border-top: none; flex: 1; display: flex; flex-direction: column;">
                     <div class="app-header">
                         <img src="vaccumpro_icon.png" alt="VaccumPRO Icon">
                         <div>
@@ -646,10 +669,10 @@
                             </span>
                         </div>
                     </div>
-                    <p class="app-desc" data-i18n="tec.vaccum_desc">
+                    <p class="app-desc" data-i18n="tec.vaccum_desc" style="flex: 1; margin-bottom: 20px;">
                         Monitoreo industrial y control de vacío en tiempo real vía Bluetooth (BLE) para vacuómetros DigiVac. Grafica lecturas y genera reportes técnicos locales de alta precisión.
                     </p>
-                    <div class="app-footer">
+                    <div class="app-footer" style="margin-top: auto; padding-top: 15px; border-top: 1px solid var(--glass-border);">
                         <a href="https://play.google.com/store/apps/details?id=com.airomser.vaccumpro" target="_blank" class="playstore-link">
                             <img src="playstore_badge.png" alt="Disponible en Google Play" id="playstoreBadgeImg">
                         </a>
@@ -659,10 +682,36 @@
                     </div>
                 </div>
             </div>
-            <div class="service-card" style="text-align: left; background: var(--primary);">
-                <i class="fas fa-code-branch"></i>
-                <h3 data-i18n="tec.custom_title">Sistemas a Medida</h3>
-                <p data-i18n="tec.custom_desc">Creación de software personalizado para la integración de bases de datos y gestión técnica operativa de activos industriales.</p>
+
+            <!-- Bloque 4: P2PToday -->
+            <div class="service-card p2ptoday-card" style="text-align: left; background: var(--primary); display: flex; flex-direction: column;">
+                <div class="featured-app" style="margin-top: 0; padding-top: 0; border-top: none; flex: 1; display: flex; flex-direction: column;">
+                    <div class="app-header">
+                        <img src="p2ptoday_icon.png" alt="P2PToday Icon">
+                        <div>
+                            <h4 data-i18n="tec.p2ptoday_title">P2PToday</h4>
+                            <span class="app-badge" data-i18n="tec.p2ptoday_badge" style="color: #20b2aa;">
+                                <i class="fas fa-certificate" style="color: #20b2aa !important;"></i> App Oficial
+                            </span>
+                        </div>
+                    </div>
+                    <p class="app-desc" data-i18n="tec.p2ptoday_desc" style="flex: 1; margin-bottom: 20px;">
+                        Gestión inteligente de órdenes Binance P2P, monitoreo de precios, cálculo automatizado de spreads y conciliación bancaria local para transacciones seguras.
+                    </p>
+                    <div class="app-footer" style="margin-top: auto; padding-top: 15px; border-top: 1px solid var(--glass-border);">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span class="playstore-link" style="opacity: 0.6; cursor: not-allowed; display: inline-block;">
+                                <img src="playstore_badge.png" alt="Próximamente en Google Play" id="playstoreBadgeImgP2P" style="filter: grayscale(1); opacity: 0.5; height: 48px; vertical-align: middle;">
+                            </span>
+                            <span style="background: rgba(255, 183, 3, 0.15); border: 1px solid #ffb703; color: #ffb703; padding: 4px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; vertical-align: middle;" data-i18n="tec.p2ptoday_comingsoon">
+                                PROXIMAMENTE
+                            </span>
+                        </div>
+                        <a href="privacy-p2ptoday.html" class="privacy-link" data-i18n="tec.p2ptoday_privacy">
+                            Privacidad <i class="fas fa-shield-halved"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -835,7 +884,11 @@
             <a href="https://wa.me/584248287969"><i class="fab fa-whatsapp"></i></a>
         </div>
         <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 12px;" data-i18n="footer.text">&copy; 2026 AIROM SER C.A. - Excelencia en Ingeniería & Tecnología.</p>
-        <p style="font-size: 0.85rem;"><a href="privacy.html" style="color: var(--accent); text-decoration: none; font-weight: 600; opacity: 0.8; transition: var(--transition);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" data-i18n="footer.privacy"><i class="fas fa-shield-halved" style="margin-right: 6px;"></i>Política de Privacidad - VaccumPRO</a></p>
+        <p style="font-size: 0.85rem; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 15px;">
+            <a href="privacy.html" style="color: var(--accent); text-decoration: none; font-weight: 600; opacity: 0.8; transition: var(--transition);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" data-i18n="footer.privacy_vaccum"><i class="fas fa-shield-halved" style="margin-right: 6px;"></i>Política de Privacidad - VaccumPRO</a>
+            <span style="color: var(--glass-border);">|</span>
+            <a href="privacy-p2ptoday.html" style="color: #20b2aa; text-decoration: none; font-weight: 600; opacity: 0.8; transition: var(--transition);" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" data-i18n="footer.privacy_p2p"><i class="fas fa-shield-halved" style="margin-right: 6px;"></i>Política de Privacidad - P2PToday</a>
+        </p>
     </footer>
 
     <a href="https://wa.me/584248287969" class="wp-button" target="_blank">
@@ -875,6 +928,11 @@
                 "tec.vaccum_badge": "<i class=\"fas fa-certificate\"></i> App Oficial",
                 "tec.vaccum_desc": "Monitoreo industrial y control de vacío en tiempo real vía Bluetooth (BLE) para vacuómetros DigiVac. Grafica lecturas y genera reportes técnicos locales de alta precisión.",
                 "tec.vaccum_privacy": "Privacidad <i class=\"fas fa-shield-halved\"></i>",
+                "tec.p2ptoday_title": "P2PToday",
+                "tec.p2ptoday_badge": "<i class=\"fas fa-certificate\"></i> App Oficial",
+                "tec.p2ptoday_desc": "Gestión inteligente de órdenes Binance P2P, monitoreo de precios, cálculo automatizado de spreads y conciliación bancaria local para transacciones seguras.",
+                "tec.p2ptoday_privacy": "Privacidad <i class=\"fas fa-shield-halved\"></i>",
+                "tec.p2ptoday_comingsoon": "PROXIMAMENTE",
                 "tec.custom_title": "Sistemas a Medida",
                 "tec.custom_desc": "Creación de software personalizado para la integración de bases de datos y gestión técnica operativa de activos industriales.",
                 
@@ -928,7 +986,8 @@
                 "cont.btn_send": "Enviar Mensaje",
                 
                 "footer.text": "&copy; 2026 AIROM SER C.A. - Excelencia en Ingeniería & Tecnología.",
-                "footer.privacy": "<i class=\"fas fa-shield-halved\" style=\"margin-right: 6px;\"></i>Política de Privacidad - VaccumPRO"
+                "footer.privacy_vaccum": "<i class=\"fas fa-shield-halved\" style=\"margin-right: 6px;\"></i>Política de Privacidad - VaccumPRO",
+                "footer.privacy_p2p": "<i class=\"fas fa-shield-halved\" style=\"margin-right: 6px;\"></i>Política de Privacidad - P2PToday"
             },
             en: {
                 "nav.inicio": "Home",
@@ -960,6 +1019,11 @@
                 "tec.vaccum_badge": "<i class=\"fas fa-certificate\"></i> Official App",
                 "tec.vaccum_desc": "Industrial monitoring and real-time vacuum control via Bluetooth (BLE) for DigiVac vacuum gauges. Graphs readings and generates high-precision local technical reports.",
                 "tec.vaccum_privacy": "Privacy <i class=\"fas fa-shield-halved\"></i>",
+                "tec.p2ptoday_title": "P2PToday",
+                "tec.p2ptoday_badge": "<i class=\"fas fa-certificate\"></i> Official App",
+                "tec.p2ptoday_desc": "Intelligent management of Binance P2P orders, price monitoring, automated spread calculation, and local bank reconciliation for secure transactions.",
+                "tec.p2ptoday_privacy": "Privacy <i class=\"fas fa-shield-halved\"></i>",
+                "tec.p2ptoday_comingsoon": "COMING SOON",
                 "tec.custom_title": "Custom Systems",
                 "tec.custom_desc": "Custom software development for database integration and operational technical management of industrial assets.",
                 
@@ -1013,7 +1077,8 @@
                 "cont.btn_send": "Send Message",
                 
                 "footer.text": "&copy; 2026 AIROM SER C.A. - Excellence in Engineering & Technology.",
-                "footer.privacy": "<i class=\"fas fa-shield-halved\" style=\"margin-right: 6px;\"></i>Privacy Policy - VaccumPRO"
+                "footer.privacy_vaccum": "<i class=\"fas fa-shield-halved\" style=\"margin-right: 6px;\"></i>Privacy Policy - VaccumPRO",
+                "footer.privacy_p2p": "<i class=\"fas fa-shield-halved\" style=\"margin-right: 6px;\"></i>Privacy Policy - P2PToday"
             }
         };
 
@@ -1035,6 +1100,16 @@
                 } else {
                     playstoreBadge.src = 'playstore_badge.png';
                     playstoreBadge.alt = 'Disponible en Google Play';
+                }
+            }
+            const playstoreBadgeP2P = document.getElementById('playstoreBadgeImgP2P');
+            if (playstoreBadgeP2P) {
+                if (lang === 'en') {
+                    playstoreBadgeP2P.src = 'playstore_badge_en.png';
+                    playstoreBadgeP2P.alt = 'Coming soon to Google Play';
+                } else {
+                    playstoreBadgeP2P.src = 'playstore_badge.png';
+                    playstoreBadgeP2P.alt = 'Próximamente en Google Play';
                 }
             }
 
