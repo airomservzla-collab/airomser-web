@@ -699,14 +699,9 @@
                         Gestión inteligente de órdenes Binance P2P, monitoreo de precios, cálculo automatizado de spreads y conciliación bancaria local para transacciones seguras.
                     </p>
                     <div class="app-footer" style="margin-top: auto; padding-top: 15px; border-top: 1px solid var(--glass-border);">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <span class="playstore-link" style="opacity: 0.6; cursor: not-allowed; display: inline-block;">
-                                <img src="playstore_badge.png" alt="Próximamente en Google Play" id="playstoreBadgeImgP2P" style="filter: grayscale(1); opacity: 0.5; height: 48px; vertical-align: middle;">
-                            </span>
-                            <span style="background: rgba(255, 183, 3, 0.15); border: 1px solid #ffb703; color: #ffb703; padding: 4px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; vertical-align: middle;" data-i18n="tec.p2ptoday_comingsoon">
-                                PROXIMAMENTE
-                            </span>
-                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.airomser.p2ptoday" target="_blank" class="playstore-link">
+                            <img src="playstore_badge.png" alt="Disponible en Google Play" id="playstoreBadgeImgP2P">
+                        </a>
                         <a href="privacy-p2ptoday.html" class="privacy-link" data-i18n="tec.p2ptoday_privacy">
                             Privacidad <i class="fas fa-shield-halved"></i>
                         </a>
@@ -932,7 +927,6 @@
                 "tec.p2ptoday_badge": "<i class=\"fas fa-certificate\"></i> App Oficial",
                 "tec.p2ptoday_desc": "Gestión inteligente de órdenes Binance P2P, monitoreo de precios, cálculo automatizado de spreads y conciliación bancaria local para transacciones seguras.",
                 "tec.p2ptoday_privacy": "Privacidad <i class=\"fas fa-shield-halved\"></i>",
-                "tec.p2ptoday_comingsoon": "PROXIMAMENTE",
                 "tec.custom_title": "Sistemas a Medida",
                 "tec.custom_desc": "Creación de software personalizado para la integración de bases de datos y gestión técnica operativa de activos industriales.",
                 
@@ -1023,7 +1017,6 @@
                 "tec.p2ptoday_badge": "<i class=\"fas fa-certificate\"></i> Official App",
                 "tec.p2ptoday_desc": "Intelligent management of Binance P2P orders, price monitoring, automated spread calculation, and local bank reconciliation for secure transactions.",
                 "tec.p2ptoday_privacy": "Privacy <i class=\"fas fa-shield-halved\"></i>",
-                "tec.p2ptoday_comingsoon": "COMING SOON",
                 "tec.custom_title": "Custom Systems",
                 "tec.custom_desc": "Custom software development for database integration and operational technical management of industrial assets.",
                 
@@ -1106,10 +1099,10 @@
             if (playstoreBadgeP2P) {
                 if (lang === 'en') {
                     playstoreBadgeP2P.src = 'playstore_badge_en.png';
-                    playstoreBadgeP2P.alt = 'Coming soon to Google Play';
+                    playstoreBadgeP2P.alt = 'Get it on Google Play';
                 } else {
                     playstoreBadgeP2P.src = 'playstore_badge.png';
-                    playstoreBadgeP2P.alt = 'Próximamente en Google Play';
+                    playstoreBadgeP2P.alt = 'Disponible en Google Play';
                 }
             }
 
