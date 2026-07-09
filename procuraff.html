@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROCURA SERVICE FF, C.A. | Procura, Construcción, Mantenimiento y Servicios</title>
+    <meta name="description" content="Portal web oficial de PROCURA SERVICE FF, C.A. Especialistas en procura, construcción, mantenimiento e inspección de obras y servicios industriales.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Paleta de Colores Clara Premium - Soft Slate & Industrial Gold */
+            --primary: #f8fafc;        /* Slate muy claro para fondo de cuerpo */
+            --primary-light: #f1f5f9;  /* Slate claro para secciones secundarias */
+            --accent: #d97706;         /* Amarillo/Naranja Industrial para mejor contraste */
+            --accent-blue: #0284c7;    /* Azul/Cyan para acentos en fondo claro */
+            --accent-soft: rgba(217, 119, 6, 0.1);
+            --white: #0f172a;          /* Texto principal (Navy profundo) */
+            --text-dim: #475569;       /* Texto secundario (Slate medio) */
+            --glass: #ffffff;          /* Fondo de tarjetas (Blanco puro) */
+            --glass-border: #e2e8f0;   /* Bordes sutiles */
+            --shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08); /* Sombra ligera */
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--primary); 
+            color: var(--white); 
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--primary); }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; border: 2px solid var(--primary); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        /* Navegación White Premium (mismo fondo que el logo) */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            transition: var(--transition);
+        }
+        .logo-container img { 
+            height: 38px; 
+            width: auto;
+            object-fit: contain;
+        }
+        .btn-back {
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: var(--transition);
+            background: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-back:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        /* Selector de Idioma (ES | EN) */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 8px;
+            gap: 8px;
+            margin-left: 20px;
+            transition: var(--transition);
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #64748b;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .lang-btn:hover { color: #0f172a; }
+        .lang-btn.active {
+            color: #ffffff;
+            background: #475569;
+            box-shadow: 0 4px 10px rgba(71, 85, 105, 0.2);
+        }
+        .lang-separator { color: #cbd5e1; font-size: 0.8rem; }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 6% 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(248, 250, 252, 0.85) 0%, var(--primary) 100%), url('20230523_163813.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .hero-logo-box {
+            background: #ffffff;
+            padding: 20px 40px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+            margin-bottom: 40px;
+            transition: var(--transition);
+            max-width: 600px;
+            width: 90%;
+        }
+        .hero-logo-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.1);
+        }
+        .hero-logo-box img {
+            width: 100%;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+        }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        .hero h1 span { color: #0284c7; }
+        .rif-badge {
+            background: rgba(217, 119, 6, 0.1);
+            border: 1px solid #d97706;
+            color: #d97706;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+        .hero p {
+            max-width: 800px;
+            color: var(--text-dim);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* Secciones */
+        .section { padding: 80px 6%; position: relative; }
+        .section-header { margin-bottom: 50px; text-align: center; }
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            color: var(--white);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .section-header .bar { width: 60px; height: 5px; background: var(--accent); margin: 0 auto; border-radius: 3px; }
+
+        /* Grid de Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: var(--glass);
+            padding: 35px 25px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: #0284c7;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .service-card:hover {
+            background: #ffffff;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+            border-color: #cbd5e1;
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+        .service-card:hover .service-icon-box {
+            background: #0284c7;
+            border-color: #0284c7;
+            transform: scale(1.1);
+        }
+        .service-icon-box i {
+            font-size: 1.8rem;
+            color: #0284c7;
+            transition: var(--transition);
+        }
+        .service-card:hover .service-icon-box i {
+            color: #ffffff;
+        }
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            color: var(--white);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .service-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .service-card ul {
+            list-style: none;
+            margin-top: 15px;
+            width: 100%;
+        }
+        .service-card ul li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+        .service-card ul li::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            color: #d97706;
+            font-weight: bold;
+        }
+
+        /* Sección de Contacto */
+        .contact-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 50px 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .contact-box {
+                padding: 40px 25px;
+            }
+        }
+        .info-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .info-item i {
+            font-size: 1.4rem;
+            color: #0284c7;
+            margin-top: 4px;
+        }
+        .info-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+        .info-item p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+        .info-item a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .info-item a:hover {
+            color: #0284c7;
+        }
+
+        /* Botón de Whatsapp Corporativo */
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            background: #22c55e;
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+            border: 2px solid #22c55e;
+            font-size: 0.9rem;
+        }
+        .btn-whatsapp:hover {
+            background: transparent;
+            color: #22c55e;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(34, 197, 94, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #f1f5f9;
+            padding: 50px 8% 40px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            margin-top: auto;
+        }
+        footer p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="procura_logo.png" alt="Procura Service FF Logo">
+        </a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="index.html" class="btn-back" data-i18n="btn.back">
+                <i class="fas fa-arrow-left"></i> Volver a AIROM
+            </a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <span class="lang-separator">|</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-logo-box">
+            <img src="procura_logo.png" alt="PROCURA SERVICE FF, C.A. Logo">
+        </div>
+        <div class="rif-badge">RIF J-50358964-7</div>
+        <h1 data-i18n="hero.title">PROCURA, CONSTRUCCIÓN, <span>MANTENIMIENTO Y SERVICIOS</span></h1>
+        <p data-i18n="hero.desc">
+            Es una empresa dedicada a prestar una gran diversidad de servicios en obras cuyo principal objetivo es la búsqueda, mejora y resolución de problemas que enfrentan los variados organismos. Garantizamos calidad, plena satisfacción y confiabilidad.
+        </p>
+    </header>
+
+    <section class="section" style="background: var(--primary-light);">
+        <div class="section-header">
+            <h2 data-i18n="services.title">Servicios Ofertados</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="services-grid">
+            <!-- Servicio 1: Obras Civiles -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <i class="fas fa-trowel-bricks"></i>
+                </div>
+                <h3 data-i18n="srv.civiles_title">Obras Civiles & Vialidad</h3>
+                <p data-i18n="srv.civiles_desc">Ejecución, mantenimiento e inspección rigurosa de obras civiles, vialidad e infraestructura de iluminación.</p>
+            </div>
+
+            <!-- Servicio 2: Suministros y Fabricación -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <i class="fas fa-gears"></i>
+                </div>
+                <h3 data-i18n="srv.suministros_title">Suministros & Fabricación</h3>
+                <p data-i18n="srv.suministros_desc">Fabricación e instalación de equipos industriales a la medida:</p>
+                <ul>
+                    <li data-i18n="srv.list_metal">Metalmecánica y Electromecánica</li>
+                    <li data-i18n="srv.list_tub">Tuberías Industriales e Instrumentación</li>
+                    <li data-i18n="srv.list_quim">Productos Químicos y Aguas Industriales</li>
+                </ul>
+            </div>
+
+            <!-- Servicio 3: Perforación y Energía -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <i class="fas fa-bore-hole"></i>
+                </div>
+                <h3 data-i18n="srv.perforacion_title">Perforación, Minería & Gas</h3>
+                <p data-i18n="srv.perforacion_desc">Servicios especializados para el sector de perforación de minería, petróleo y gas, incluyendo el saneamiento integral de pozos.</p>
+            </div>
+
+            <!-- Servicio 4: Control Ambiental -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3 data-i18n="srv.ambiental_title">Control Ambiental & Agrícola</h3>
+                <p data-i18n="srv.ambiental_desc">Contratación agrícola, pesquera, forestal y de fauna. Control de vegetación, servicios de desmalezamientos y ornamento industrial.</p>
+            </div>
+
+            <!-- Servicio 5: Mantenimiento y Control -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <i class="fas fa-shield-virus"></i>
+                </div>
+                <h3 data-i18n="srv.mantenimiento_title">Mantenimiento & Control</h3>
+                <p data-i18n="srv.mantenimiento_desc">Servicios de control de plagas (exterminación y fumigación), impermeabilización y aislamiento térmico en todo tipo de infraestructuras.</p>
+            </div>
+
+            <!-- Servicio 6: Refrigeración Criogénica -->
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <i class="fas fa-temperature-arrow-down"></i>
+                </div>
+                <h3 data-i18n="srv.criogenica_title">Refrigeración & Comedores</h3>
+                <p data-i18n="srv.criogenica_desc">Refrigeración industrial adaptada para estaciones de producción criogénicas y servicios integrales para comedores industriales.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align: center;">
+        <div class="section-header">
+            <h2 data-i18n="contact.title">Conectemos</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="contact-box">
+            <div class="info-grid">
+                <div>
+                    <div class="info-item" style="margin-bottom: 25px;">
+                        <i class="fas fa-location-dot"></i>
+                        <div>
+                            <h4 data-i18n="info.address_title">Dirección Fiscal</h4>
+                            <p data-i18n="info.address_desc">Av. Luis del Valle García, Edif. Ofi-Pro Ariños, PB, N° L3. Maturín, Estado Monagas, Venezuela.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 data-i18n="info.email_title">Correo Electrónico</h4>
+                            <p><a href="mailto:procuraserviceff@gmail.com">procuraserviceff@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="info-item" style="margin-bottom: 25px;">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-i18n="info.phone_title">Teléfonos de Contacto</h4>
+                            <p>0291-6434746<br>0281-4193435</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4 data-i18n="info.ws_title">WhatsApp</h4>
+                            <p><a href="https://wa.me/584166809892">+58 416-6809892</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 30px;">
+                <a href="https://wa.me/584166809892" class="btn-whatsapp" target="_blank" data-i18n="btn.contact">
+                    <i class="fab fa-whatsapp"></i> Enviar Mensaje
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 PROCURA SERVICE FF, C.A. - Excelencia y Calidad en Servicios Industriales.</p>
+    </footer>
+
+    <script>
+        // Diccionario de Traducción (ES / EN)
+        const translations = {
+            es: {
+                "btn.back": "<i class=\"fas fa-arrow-left\"></i> Volver a AIROM",
+                "hero.title": "PROCURA, CONSTRUCCIÓN, <span>MANTENIMIENTO Y SERVICIOS</span>",
+                "hero.desc": "Es una empresa dedicada a prestar una gran diversidad de servicios en obras cuyo principal objetivo es la búsqueda, mejora y resolución de problemas que enfrentan los variados organismos. Garantizamos calidad, plena satisfacción y confiabilidad.",
+                "services.title": "Servicios Ofertados",
+                "srv.civiles_title": "Obras Civiles & Vialidad",
+                "srv.civiles_desc": "Ejecución, mantenimiento e inspección rigurosa de obras civiles, vialidad e infraestructura de iluminación.",
+                "srv.suministros_title": "Suministros & Fabricación",
+                "srv.suministros_desc": "Fabricación e instalación de equipos industriales a la medida:",
+                "srv.list_metal": "Metalmecánica y Electromecánica",
+                "srv.list_tub": "Tuberías Industriales e Instrumentación",
+                "srv.list_quim": "Productos Químicos y Aguas Industriales",
+                "srv.perforacion_title": "Perforación, Minería & Gas",
+                "srv.perforacion_desc": "Servicios especializados para el sector de perforación de minería, petróleo y gas, incluyendo el saneamiento integral de pozos.",
+                "srv.ambiental_title": "Control Ambiental & Agrícola",
+                "srv.ambiental_desc": "Contratación agrícola, pesquera, forestal y de fauna. Control de vegetación, servicios de desmalezamientos y ornamento industrial.",
+                "srv.mantenimiento_title": "Mantenimiento & Control",
+                "srv.mantenimiento_desc": "Servicios de control de plagas (exterminación y fumigación), impermeabilización y aislamiento térmico en todo tipo de infraestructuras.",
+                "srv.criogenica_title": "Refrigeración & Comedores",
+                "srv.criogenica_desc": "Refrigeración industrial adaptada para estaciones de producción criogénicas y servicios integrales para comedores industriales.",
+                "contact.title": "Conectemos",
+                "info.address_title": "Dirección Fiscal",
+                "info.address_desc": "Av. Luis del Valle García, Edif. Ofi-Pro Ariños, PB, N° L3. Maturín, Estado Monagas, Venezuela.",
+                "info.email_title": "Correo Electrónico",
+                "info.phone_title": "Teléfonos de Contacto",
+                "info.ws_title": "WhatsApp",
+                "btn.contact": "<i class=\"fab fa-whatsapp\"></i> Enviar Mensaje"
+            },
+            en: {
+                "btn.back": "<i class=\"fas fa-arrow-left\"></i> Back to AIROM",
+                "hero.title": "PROCUREMENT, CONSTRUCTION, <span>MAINTENANCE AND SERVICES</span>",
+                "hero.desc": "A company dedicated to providing a wide range of contracting and industrial services, aiming to search, improve, and resolve challenges faced by diverse agencies. We guarantee quality, absolute customer satisfaction, and long-term reliability.",
+                "services.title": "Offered Services",
+                "srv.civiles_title": "Civil Works & Roads",
+                "srv.civiles_desc": "Strict execution, maintenance, and inspection of civil works, roadways, and lighting infrastructure.",
+                "srv.suministros_title": "Supply & Fabrication",
+                "srv.suministros_desc": "Custom fabrication and installation of industrial systems:",
+                "srv.list_metal": "Metalworking & Electromechanics",
+                "srv.list_tub": "Industrial Piping & Instrumentation",
+                "srv.list_quim": "Chemical Products & Industrial Water",
+                "srv.perforacion_title": "Drilling, Mining & Gas",
+                "srv.perforacion_desc": "Specialized services for the mining, oil, and gas drilling sectors, including comprehensive well remediation.",
+                "srv.ambiental_title": "Environmental & Forestry",
+                "srv.ambiental_desc": "Agricultural, fishing, forestry, and wildlife contracting. Vegetation control, weeding, and industrial landscaping.",
+                "srv.mantenimiento_title": "Maintenance & Control",
+                "srv.mantenimiento_desc": "Pest control services (extermination and fumigation), waterproofing, and thermal insulation for all types of infrastructure.",
+                "srv.criogenica_title": "Cryo-Cooling & Dining",
+                "srv.criogenica_desc": "Industrial cooling custom-built for cryogenic production stations and catering operations for industrial facilities.",
+                "contact.title": "Let's Connect",
+                "info.address_title": "Registered Address",
+                "info.address_desc": "Av. Luis del Valle García, Edif. Ofi-Pro Ariños, PB, No. L3. Maturín, Monagas State, Venezuela.",
+                "info.email_title": "Email Address",
+                "info.phone_title": "Contact Numbers",
+                "info.ws_title": "WhatsApp",
+                "btn.contact": "<i class=\"fab fa-whatsapp\"></i> Send Message"
+            }
+        };
+
+        // Función para cambiar de idioma
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Cambiar botón activo en el switcher
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Guardar preferencia
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Inicializar Idioma al cargar la página
+        const savedLanguagePreference = localStorage.getItem('preferredLanguage');
+        const activeLang = savedLanguagePreference || 'es';
+        
+        setLanguage(activeLang);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setLanguage(activeLang);
+            
+            // Asignar eventos de click a los botones del selector
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const lang = e.currentTarget.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+        });
+
+        // Reveal al hacer scroll simple
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .contact-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
